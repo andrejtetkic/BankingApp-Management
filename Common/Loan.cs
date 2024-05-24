@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 namespace Common
 {
     [DataContract]
-    internal class Loan
+    public class Loan
     {
         int id;
         int bank_id;

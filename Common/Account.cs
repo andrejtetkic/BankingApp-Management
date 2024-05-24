@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace Common
 {
     [DataContract]
-    internal class Account
+    public class Account
     {
         string account_number;
         int branch_id;

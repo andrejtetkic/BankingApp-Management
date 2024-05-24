@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 
 namespace Common
 {
-    internal class Exception
+    public class Exception
     {
         string reason;
 

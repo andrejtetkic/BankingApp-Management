@@ -8,8 +8,9 @@ using System.ServiceModel;
 namespace Common
 {
     [ServiceContract]
-    internal interface IBank
+    public interface IBank
     {
-        
+        [OperationContract]
+        bool checkLogIn(string username, string password);
     }
 }
