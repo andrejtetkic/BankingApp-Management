@@ -36,5 +36,27 @@ namespace Server
             else
                 return false;
         }
+
+        public static List<Dictionary<string, object>> ExecuteSelectCommand(string sqlNaredba)
+        {
+            SqlCommand command = GetSqlCommand(sqlNaredba);
+            using (command.Connection)
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+                    while (reader.Read())
+                    {
+                        Dictionary<string, object> row = new Dictionary<string, object>();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            row[reader.GetName(i)] = reader.GetValue(i);
+                        }
+                        result.Add(row);
+                    }
+                    return result;
+                }
+            }
+        }
     }
 }

@@ -21,16 +21,34 @@ namespace Client
 
             ChannelFactory<IBank> ch = new ChannelFactory<IBank>(new BasicHttpBinding(),
                 new EndpointAddress("http://localhost:8000"));
+            ch.Endpoint.EndpointBehaviors.Add(new CustomEndpointBehavior());
             proxy = ch.CreateChannel();
+            
+
+            // Remove this
+            this.Hide();
+            MainPageForm mainPageForm = new MainPageForm();
+            mainPageForm.Closed += (s, args) => this.Close();
+            mainPageForm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            bool state = proxy.checkLogIn(username_tb.Text, password_tb.Text);
-
-            if (state)
+            User user = proxy.AuthenticateUser(username_tb.Text, password_tb.Text);
+            MessageBox.Show("gesgdg");
+            if (user != null)
             {
+
+                var userSession = new UserSession
+                {
+                    UserId = user.JMBG,
+                    Username = user.Email,
+                    Role = user.Privilage
+                };
+                SessionManager.SetUserSession(userSession);
+
+
                 this.Hide();
                 MainPageForm mainPageForm = new MainPageForm();
                 mainPageForm.Closed += (s, args) => this.Close();

@@ -50,5 +50,15 @@ namespace Common
         public string PasswordHash { get => password_hash; set => password_hash = value; }
         [DataMember]
         public int Privilage { get => privilage; set => privilage = value; }
+
+        public User(Dictionary<string, object> v)
+        {
+            this.jmbg = (string)v["jmbg_korisnika"];
+            this.ime = (string)v["ime"];
+            this.prezime = (string)v["prezime"];
+            this.email = (string)v["email"];
+            this.password_hash = (string)v["password"];
+            this.privilage = (int)v["privileges"];
+        }
     }
 }

@@ -11,6 +11,6 @@ namespace Common
     public interface IBank
     {
         [OperationContract]
-        bool checkLogIn(string username, string password);
+        User AuthenticateUser(string username, string password);
     }
 }

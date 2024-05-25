@@ -9,10 +9,18 @@ namespace Server
 {
     internal class BankServer : IBank
     {
-        public bool checkLogIn(string username, string password)
+        public User AuthenticateUser(string username, string password)
         {
-            Console.WriteLine(username + " " + password);
-            return Database.ExecuteScalarCommand($"select * from korisnik where email='{username}' and password='{password}'");
+            
+            string sqlQuery = $"select * from korisnik where email='{username}' and password='{password}'";
+            List<Dictionary<string, object>> accounts = Database.ExecuteSelectCommand(sqlQuery);
+            if (accounts.Count() > 0)
+            {
+                return new User(accounts[0]);
+
+            }
+
+            return null;
         }
     }
 }
