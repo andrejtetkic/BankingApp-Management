@@ -33,44 +33,50 @@ namespace Client
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.dashboard_tab = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.label2 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.accounts_tab = new System.Windows.Forms.TabPage();
             this.loans_tab = new System.Windows.Forms.TabPage();
             this.search_tab = new System.Windows.Forms.TabPage();
             this.transactions_tab = new System.Windows.Forms.TabPage();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.account_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.dashboard_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -87,7 +93,7 @@ namespace Client
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(851, 450);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
@@ -98,7 +104,7 @@ namespace Client
             this.dashboard_tab.Location = new System.Drawing.Point(140, 4);
             this.dashboard_tab.Name = "dashboard_tab";
             this.dashboard_tab.Padding = new System.Windows.Forms.Padding(3);
-            this.dashboard_tab.Size = new System.Drawing.Size(656, 442);
+            this.dashboard_tab.Size = new System.Drawing.Size(707, 442);
             this.dashboard_tab.TabIndex = 0;
             this.dashboard_tab.Text = "Dashboard";
             this.dashboard_tab.UseVisualStyleBackColor = true;
@@ -118,9 +124,49 @@ namespace Client
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(650, 436);
+            this.splitContainer1.Size = new System.Drawing.Size(701, 436);
             this.splitContainer1.SplitterDistance = 92;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.label4);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.label3);
+            this.splitContainer3.Size = new System.Drawing.Size(701, 92);
+            this.splitContainer3.SplitterDistance = 25;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(701, 25);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Total Balance";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(701, 63);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "$5000";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // splitContainer2
             // 
@@ -135,9 +181,40 @@ namespace Client
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer5);
-            this.splitContainer2.Size = new System.Drawing.Size(650, 340);
-            this.splitContainer2.SplitterDistance = 326;
+            this.splitContainer2.Size = new System.Drawing.Size(701, 340);
+            this.splitContainer2.SplitterDistance = 453;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.label1);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer4.Size = new System.Drawing.Size(453, 340);
+            this.splitContainer4.SplitterDistance = 25;
+            this.splitContainer4.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(453, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Accounts";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridView1
             // 
@@ -145,12 +222,47 @@ namespace Client
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.account_number,
+            this.balance,
+            this.bank,
+            this.branch});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(326, 311);
+            this.dataGridView1.Size = new System.Drawing.Size(453, 311);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.label2);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.dataGridView2);
+            this.splitContainer5.Size = new System.Drawing.Size(244, 340);
+            this.splitContainer5.SplitterDistance = 25;
+            this.splitContainer5.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(244, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Recent Transactions";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView2
             // 
@@ -158,11 +270,14 @@ namespace Client
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.date,
+            this.amount});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(320, 311);
+            this.dataGridView2.Size = new System.Drawing.Size(244, 311);
             this.dataGridView2.TabIndex = 0;
             // 
             // accounts_tab
@@ -203,106 +318,42 @@ namespace Client
             this.transactions_tab.Text = "Transactions";
             this.transactions_tab.UseVisualStyleBackColor = true;
             // 
-            // splitContainer3
+            // date
             // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
             // 
-            // splitContainer3.Panel1
+            // amount
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.label4);
+            this.amount.HeaderText = "Amount";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
             // 
-            // splitContainer3.Panel2
+            // account_number
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.label3);
-            this.splitContainer3.Size = new System.Drawing.Size(650, 92);
-            this.splitContainer3.SplitterDistance = 25;
-            this.splitContainer3.TabIndex = 0;
+            this.account_number.HeaderText = "Account Number";
+            this.account_number.Name = "account_number";
+            this.account_number.ReadOnly = true;
+            this.account_number.Width = 110;
             // 
-            // splitContainer4
+            // balance
             // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer4.Name = "splitContainer4";
-            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.balance.HeaderText = "Balance";
+            this.balance.Name = "balance";
+            this.balance.ReadOnly = true;
             // 
-            // splitContainer4.Panel1
+            // bank
             // 
-            this.splitContainer4.Panel1.Controls.Add(this.label1);
+            this.bank.HeaderText = "Bank";
+            this.bank.Name = "bank";
+            this.bank.ReadOnly = true;
             // 
-            // splitContainer4.Panel2
+            // branch
             // 
-            this.splitContainer4.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer4.Size = new System.Drawing.Size(326, 340);
-            this.splitContainer4.SplitterDistance = 25;
-            this.splitContainer4.TabIndex = 1;
-            // 
-            // splitContainer5
-            // 
-            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer5.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer5.Name = "splitContainer5";
-            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer5.Panel1
-            // 
-            this.splitContainer5.Panel1.Controls.Add(this.label2);
-            // 
-            // splitContainer5.Panel2
-            // 
-            this.splitContainer5.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer5.Size = new System.Drawing.Size(320, 340);
-            this.splitContainer5.SplitterDistance = 25;
-            this.splitContainer5.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(326, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Accounts";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(320, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Recent Transactions";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(650, 25);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Total Balance";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(650, 63);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "$5000";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.branch.HeaderText = "Branch";
+            this.branch.Name = "branch";
+            this.branch.ReadOnly = true;
             // 
             // MainPageForm
             // 
@@ -310,7 +361,7 @@ namespace Client
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(851, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainPageForm";
             this.Text = "Bank";
@@ -320,24 +371,24 @@ namespace Client
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,5 +413,11 @@ namespace Client
         private Label label2;
         private Label label4;
         private Label label3;
+        private DataGridViewTextBoxColumn account_number;
+        private DataGridViewTextBoxColumn balance;
+        private DataGridViewTextBoxColumn bank;
+        private DataGridViewTextBoxColumn branch;
+        private DataGridViewTextBoxColumn date;
+        private DataGridViewTextBoxColumn amount;
     }
 }

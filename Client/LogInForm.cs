@@ -36,7 +36,7 @@ namespace Client
         {
 
             User user = proxy.AuthenticateUser(username_tb.Text, password_tb.Text);
-            MessageBox.Show("gesgdg");
+
             if (user != null)
             {
 
@@ -48,11 +48,21 @@ namespace Client
                 };
                 SessionManager.SetUserSession(userSession);
 
-
-                this.Hide();
-                MainPageForm mainPageForm = new MainPageForm();
-                mainPageForm.Closed += (s, args) => this.Close();
-                mainPageForm.Show();
+                if (SessionManager.IsAdmin())
+                {
+                    this.Hide();
+                    MainPageForm mainPageForm = new MainPageForm();
+                    mainPageForm.Closed += (s, args) => this.Close();
+                    mainPageForm.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    MainPageForm mainPageForm = new MainPageForm();
+                    mainPageForm.Closed += (s, args) => this.Close();
+                    mainPageForm.Show();
+                }
+                
             }
             else
             {

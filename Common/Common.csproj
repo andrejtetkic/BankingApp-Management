@@ -49,6 +49,7 @@
     <Compile Include="Exception.cs" />
     <Compile Include="IBank.cs" />
     <Compile Include="Loan.cs" />
+    <Compile Include="Transaction.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
