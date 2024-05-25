@@ -50,5 +50,16 @@ namespace Common
         public long Amount { get => amount; set => this.amount = value; }
         [DataMember]
         public int Interest { get => interest; set => this.interest = value; }
+
+
+        public Loan(Dictionary<string, object> v)
+        {
+            this.id = (int)v["id_kredita"];
+            this.bank_id = (int)v["id_banke"];
+            this.lender_jmbg = (string)v["jmbg_korisnika"];
+            this.name = (string)v["naziv_kredita"];
+            this.amount = (int)v["suma"];
+            this.interest = (int)v["kamata"];
+        }
     }
 }

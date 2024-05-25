@@ -44,5 +44,14 @@ namespace Common
         public string LenderJMBG { get => lender_jmbg; set => lender_jmbg = value; }
         [DataMember]
         public long Balance { get => balance; set => balance = value; }
+
+        public Account(Dictionary<string, object> v)
+        {
+            this.account_number = (string)v["broj_racuna"];
+            this.branch_id = (int)v["id_filijale"];
+            this.bank_id = (int)v["id_banke"];
+            this.lender_jmbg = (string)v["jmbg_korisnika"];
+            this.balance = (long)v["stanje"];
+        }
     }
 }

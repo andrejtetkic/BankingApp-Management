@@ -34,5 +34,12 @@ namespace Common
         public string Name { get => name; set => name = value; }
         [DataMember]
         public string City { get => city; set => city = value; }
+
+        public Bank(Dictionary<string, object> v)
+        {
+            this.id = (int)v["id_banke"];
+            this.name = (string)v["naziv_banke"];
+            this.city = (string)v["grad"];
+        }
     }
 }

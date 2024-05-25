@@ -39,5 +39,13 @@ namespace Common
         public string Name { get => name; set => name = value; }
         [DataMember]
         public string Address { get => address; set => address = value; }
+
+        public Branch(Dictionary<string, object> v)
+        {
+            this.id = (int)v["id_filijale"];
+            this.bank_id = (int)v["id_banke"];
+            this.name = (string)v["naziv_filijale"];
+            this.address = (string)v["adresa_filijale"];
+        }
     }
 }

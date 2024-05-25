@@ -7,21 +7,21 @@ using System.Runtime.Serialization;
 
 namespace Common
 {
-    public class Exception
+    public class CException
     {
         string reason;
 
         [DataMember]
         public string Reason { get => reason; set => reason = value; }
 
-        public Exception(string razlog)
+        public CException(string razlog)
         {
             this.Reason = razlog;
         }
 
-        public Exception()
+        public CException()
         {
-            this.Reason = "";
+            this.Reason = "Error!";
         }
     }
 }

@@ -15,26 +15,27 @@ namespace Common
 
         #region CRUD Account
         [OperationContract]
+        [FaultContract(typeof(CException))]
         void CreateAccount(Account account);
 
         [OperationContract]
         List<Account> GetAllAccounts();
 
         [OperationContract]
-        List<Account> GetAllAccountsOfUser(User user);
+        List<Account> GetAllAccountsOfUser(string user_id);
 
         [OperationContract]
-        bool UpdateAccount(int account_id, Account account);
+        bool UpdateAccount(string account_id, Account account);
 
         [OperationContract]
-        bool DeleteAccount(int accout_id);
+        bool DeleteAccount(string accout_id);
 
         #endregion
 
 
         #region CRUD User
         [OperationContract]
-        [FaultContract(typeof(Exception))]
+        [FaultContract(typeof(CException))]
         void CreateUser(User user);
 
         [OperationContract]
@@ -51,7 +52,7 @@ namespace Common
 
         #region CRUD Bank
         [OperationContract]
-        [FaultContract(typeof(Exception))]
+        [FaultContract(typeof(CException))]
         void CreateBank(Bank bank);
 
         [OperationContract]
@@ -68,7 +69,7 @@ namespace Common
 
         #region CRUD Branch
         [OperationContract]
-        [FaultContract(typeof(Exception))]
+        [FaultContract(typeof(CException))]
         void CreateBranch(Branch branch);
 
         [OperationContract]
@@ -86,7 +87,7 @@ namespace Common
         #region CRUD Loan
 
         [OperationContract]
-        [FaultContract(typeof(Exception))]
+        [FaultContract(typeof(CException))]
         void CreateLoan(Loan loan);
 
         [OperationContract]
@@ -108,7 +109,7 @@ namespace Common
         #region CRUD Transaction
 
         [OperationContract]
-        [FaultContract(typeof(Exception))]
+        [FaultContract(typeof(CException))]
         void CreateTransaction(Transaction transaction);
 
         [OperationContract]
@@ -116,7 +117,7 @@ namespace Common
 
 
         [OperationContract]
-        List<Transaction> GetAllTransactionsOfUser(User user);
+        List<Transaction> GetAllTransactionsOfUser(string user_id);
 
         [OperationContract]
         bool UpdateTransaction(int transaction_id, Transaction transaction);

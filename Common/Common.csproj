@@ -46,7 +46,7 @@
     <Compile Include="Account.cs" />
     <Compile Include="Bank.cs" />
     <Compile Include="Branch.cs" />
-    <Compile Include="Exception.cs" />
+    <Compile Include="CException.cs" />
     <Compile Include="IBank.cs" />
     <Compile Include="Loan.cs" />
     <Compile Include="Transaction.cs" />
