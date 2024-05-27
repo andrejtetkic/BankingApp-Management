@@ -58,7 +58,7 @@ namespace Common
             this.bank_id = (int)v["id_banke"];
             this.lender_jmbg = (string)v["jmbg_korisnika"];
             this.name = (string)v["naziv_kredita"];
-            this.amount = (int)v["suma"];
+            this.amount = (long)v["suma"];
             this.interest = (int)v["kamata"];
         }
     }

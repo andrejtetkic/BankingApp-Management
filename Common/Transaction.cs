@@ -26,8 +26,9 @@ namespace Common
         DateTime transaction_date;
         string description;
         float bank_fee_procentage;
+        string type;
 
-        public Transaction(int transaction_id, string sender_account_id, int sender_branch_id, int sender_bank_id, string reciver_account_id, int reciver_branch_id, int reciver_bank_id, string transaction_type, float amount, DateTime transaction_date, string description, float bank_fee_procentage)
+        public Transaction(int transaction_id, string sender_account_id, int sender_branch_id, int sender_bank_id, string reciver_account_id, int reciver_branch_id, int reciver_bank_id, string transaction_type, float amount, DateTime transaction_date, string description, float bank_fee_procentage, string type)
         {
             this.transaction_id = transaction_id;
             this.sender_account_id = sender_account_id;
@@ -41,6 +42,7 @@ namespace Common
             this.description = description;
             this.bank_fee_procentage = bank_fee_procentage;
             this.amount = amount;
+            this.type = type;
         }
 
         public Transaction()
@@ -57,6 +59,7 @@ namespace Common
             this.description = "";
             this.bank_fee_procentage = 0;
             this.amount = 0;
+            this.type = "";
         }
 
         [DataMember]
@@ -83,6 +86,8 @@ namespace Common
         public float BankFeeProcentage { get => bank_fee_procentage; set => bank_fee_procentage = value; }
         [DataMember]
         public float Amount { get => amount; set => amount = value; }
+        [DataMember]
+        public string Type { get => type; set => type = value; }
 
         public Transaction(Dictionary<string, object> v)
         {
@@ -94,10 +99,17 @@ namespace Common
             this.reciver_branch_id = (int)v["ReceiverBranchId"];
             this.reciver_bank_id = (int)v["ReceiverBankId"];
             this.transaction_type = (string)v["TransactionType"];
-            this.transaction_date = DateTime.Parse((string)v["TransactionDate"]);
+            this.transaction_date = (DateTime)v["TransactionDate"];
             this.description = (string)v["Description"];
-            this.bank_fee_procentage = (int)v["BankFeePercentage"];
-            this.amount = (float)v["Amount"];
+            this.bank_fee_procentage = Convert.ToSingle(v["BankFeePercentage"]);
+            this.amount = Convert.ToSingle(v["Amount"]);
+            if(v.ContainsKey("type"))
+            {
+                this.type = (string)v["type"];
+            } else
+            {
+                this.type = "";
+            }
         }
     }
 }

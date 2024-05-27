@@ -218,22 +218,40 @@ namespace Server
 
         public List<Bank> GetAllBanks()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); // Will implement if nessesery
         }
 
         public List<Branch> GetAllBranches()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); // Will implement if nessesery
         }
 
         public List<Loan> GetAllLoans()
         {
-            throw new NotImplementedException();
+            string sqlQuery = $"select * from kredit";
+            List<Dictionary<string, object>> loans = Database.ExecuteSelectCommand(sqlQuery);
+
+            List<Loan> return_loans = new List<Loan>();
+            foreach (Dictionary<string, object> loan in loans)
+            {
+                return_loans.Add(new Loan(loan));
+            }
+
+            return return_loans;
         }
 
-        public List<Loan> GetAllLoansOfUser(User user)
+        public List<Loan> GetAllLoansOfUser(string user_id)
         {
-            throw new NotImplementedException();
+            string sqlQuery = $"select * from kredit where jmbg_korisnika='{user_id}'";
+            List<Dictionary<string, object>> loans = Database.ExecuteSelectCommand(sqlQuery);
+
+            List<Loan> return_loans = new List<Loan>();
+            foreach (Dictionary<string, object> loan in loans)
+            {
+                return_loans.Add(new Loan(loan));
+            }
+
+            return return_loans;
         }
 
         public List<Transaction> GetAllTransactions()
@@ -250,10 +268,13 @@ namespace Server
             return return_transactions;
         }
 
-        public List<Transaction> GetAllTransactionsOfUser(string user_id)
+        public List<Transaction> GetAllTransactionsOfAccount(string account_id)
         {
             //TODO
-            string sqlQuery = $"select * from Transactions where ";
+            string sqlQuery = $"SELECT t.* , iif(t.SenderAccountId = rs.broj_racuna, 'sent', 'received') [type] " +
+                $"FROM Transactions t left JOIN racun rs ON t.SenderAccountId = rs.broj_racuna OR " +
+                $"t.ReceiverAccountId = rs.broj_racuna WHERE rs.broj_racuna = '{account_id}'";
+
             List<Dictionary<string, object>> transactions = Database.ExecuteSelectCommand(sqlQuery);
 
             List<Transaction> return_transactions = new List<Transaction>();
@@ -281,32 +302,75 @@ namespace Server
 
         public bool UpdateAccount(string account_id, Account account)
         {
-            throw new NotImplementedException();
+            string sqlQuery = $"UPDATE racun SET id_filijale = {account.BranchId}, id_banke = {account.BankId}, " +
+                $"jmbg_korisnika = '{account.LenderJMBG}', stanje = {account.Balance} " +
+                $"WHERE broj_racuna = '{account_id}'";
+
+            string check_query = $"SELECT * FROM racun WHERE broj_racuna='{account_id}'";
+            if (!Database.ExecuteScalarCommand(check_query))
+            {
+                return false;
+            }
+
+
+            return Database.ExecuteNonQueryCommand(sqlQuery);
+            // This would probably never be used
+
         }
 
         public bool UpdateBank(int bank_id, Bank bank)
         {
-            throw new NotImplementedException();
+            string sqlQuery = $"UPDATE banka SET naziv_banke = '{bank.Name}', " +
+                $"grad = '{bank.City}' WHERE id_banke = {bank_id}";
+
+            string check_query = $"SELECT * FROM banka WHERE id_banke={bank_id}";
+            if (!Database.ExecuteScalarCommand(check_query))
+            {
+                return false;
+            }
+
+
+            return Database.ExecuteNonQueryCommand(sqlQuery);
         }
 
         public bool UpdateBranch(int branch_id, Branch branch)
         {
-            throw new NotImplementedException();
+            string sqlQuery = $"UPDATE filijala SET naziv_filijale = '{branch.Name}', " +
+                $"adresa_filijale = '{branch.Address}' WHERE id_filijale = {branch_id}";
+
+            string check_query = $"SELECT * FROM filijala WHERE id_filijale={branch_id}";
+            if (!Database.ExecuteScalarCommand(check_query))
+            {
+                return false;
+            }
+
+
+            return Database.ExecuteNonQueryCommand(sqlQuery);
         }
 
         public bool UpdateLoan(int loan_id, Loan loan)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); // Dont do this
         }
 
         public bool UpdateTransaction(int transaction_id, Transaction transaction)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); // Dont do this
         }
 
-        public bool UpdateUser(int user_id, User user)
+        public bool UpdateUser(string user_id, User user)
         {
-            throw new NotImplementedException();
+            string sqlQuery = $"UPDATE korisnik SET ime = '{user.Ime}', " +
+                $"prezime = '{user.Prezime}', email='{user.Email}' WHERE jmbg_korisnika = '{user_id}'";
+
+            string check_query = $"SELECT * FROM korisnik WHERE jmbg_korisnika='{user_id}'";
+            if (!Database.ExecuteScalarCommand(check_query))
+            {
+                return false;
+            }
+
+
+            return Database.ExecuteNonQueryCommand(sqlQuery);
         }
     }
 }

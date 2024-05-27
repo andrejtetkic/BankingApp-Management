@@ -129,8 +129,16 @@ namespace ClientConsole
             //Console.WriteLine("no");
 
 
-            proxy.GetAllAccountsOfUser("00").ForEach(user => { Console.WriteLine(user.Balance); });
+            //proxy.GetAllTransactionsOfAccount("4-18-5").ForEach(user => { Console.WriteLine(user.TransactionID + user.Type); });
+            //proxy.GetAllAccountsOfUser("123456").ForEach(user => { Console.WriteLine(user.Balance); });
 
+            User user = new User();
+            user.Ime = "Aleksandar";
+            user.Prezime = "Balanesko";
+            user.Email = "aleksandar09@gmail.com";
+            
+
+            proxy.UpdateUser("15423", user);
 
             Console.ReadLine();
         }

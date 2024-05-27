@@ -42,7 +42,7 @@ namespace Common
         List<User> GetAllUsers();
 
         [OperationContract]
-        bool UpdateUser(int user_id, User user);
+        bool UpdateUser(string user_id, User user);
 
         [OperationContract]
         bool DeleteUser(int user_id);
@@ -95,7 +95,7 @@ namespace Common
 
 
         [OperationContract]
-        List<Loan> GetAllLoansOfUser(User user);
+        List<Loan> GetAllLoansOfUser(string user_id);
 
         [OperationContract]
         bool UpdateLoan(int loan_id, Loan loan);
@@ -117,7 +117,7 @@ namespace Common
 
 
         [OperationContract]
-        List<Transaction> GetAllTransactionsOfUser(string user_id);
+        List<Transaction> GetAllTransactionsOfAccount(string account_id);
 
         [OperationContract]
         bool UpdateTransaction(int transaction_id, Transaction transaction);
