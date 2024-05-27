@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Client
     {
         public string UserId { get; set; }
         public string Username { get; set; }
-        public int Role { get; set; } // e.g., "Admin" 1 or "User" 0
+        public PrivilagesEnum Role { get; set; }
     }
 
     

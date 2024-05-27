@@ -10,8 +10,7 @@ namespace Common
     [ServiceContract]
     public interface IBank
     {
-        [OperationContract]
-        User AuthenticateUser(string username, string password);
+        
 
         #region CRUD Account
         [OperationContract]
@@ -47,6 +46,19 @@ namespace Common
         [OperationContract]
         bool DeleteUser(int user_id);
 
+
+
+
+        [OperationContract]
+        User AuthenticateUser(string username, string password);
+
+
+        [OperationContract]
+        bool SetUserAdmin(string user_id);
+
+        [OperationContract]
+        bool ChangeUserPassword(string user_id, string password, string current_password);
+
         #endregion
 
 
@@ -64,6 +76,10 @@ namespace Common
         [OperationContract]
         bool DeleteBank(int bank_id);
 
+
+        [OperationContract]
+        List<Dictionary<int, string>> GetAllBankNamesWithIDs();
+
         #endregion
 
 
@@ -80,6 +96,11 @@ namespace Common
 
         [OperationContract]
         bool DeleteBranch(int branch_id);
+
+
+
+        [OperationContract]
+        List<Dictionary<int, string>> GetAllBranchNamesWithIDs();
 
         #endregion
 

@@ -44,7 +44,7 @@ namespace Client
                 {
                     UserId = user.JMBG,
                     Username = user.Email,
-                    Role = user.Privilage
+                    Role = (PrivilagesEnum)user.Privilage
                 };
                 SessionManager.SetUserSession(userSession);
 

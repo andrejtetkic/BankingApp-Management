@@ -132,13 +132,46 @@ namespace ClientConsole
             //proxy.GetAllTransactionsOfAccount("4-18-5").ForEach(user => { Console.WriteLine(user.TransactionID + user.Type); });
             //proxy.GetAllAccountsOfUser("123456").ForEach(user => { Console.WriteLine(user.Balance); });
 
-            User user = new User();
-            user.Ime = "Aleksandar";
-            user.Prezime = "Balanesko";
-            user.Email = "aleksandar09@gmail.com";
-            
+            //User user = new User();
+            //user.Ime = "Aleksandar";
+            //user.Prezime = "Balanesko";
+            //user.Email = "aleksandar09@gmail.com";
 
-            proxy.UpdateUser("15423", user);
+
+            //proxy.UpdateUser("15423", user);
+
+
+            //bool result = proxy.ChangeUserPassword("15423", "password", "pass");
+
+            //Console.WriteLine(result);
+
+
+            //proxy.GetAllBranchNamesWithIDs().ForEach(i => {
+
+            //    foreach (int id in i.Keys)
+            //    {
+            //        Console.WriteLine(id + " " + i[id]);
+            //    }
+            //});
+
+            //proxy.SetUserAdmin("5641");
+
+            Transaction transaction = new Transaction();
+            transaction.SenderAccountID = "4-18-5";
+            transaction.SenderBankID = 2;
+            transaction.SenderBranchID = 1;
+
+            transaction.ReciverAccountID = "2-50-4";
+            transaction.ReciverBankID = 2;
+            transaction.ReciverBranchID = 1;
+
+            transaction.TransactionType = "transfer";
+            transaction.Amount = 1050.30f;
+            transaction.TransactionDate = DateTime.Now;
+            transaction.Description = "Evo pare";
+            transaction.BankFeeProcentage = 2;
+
+            proxy.CreateTransaction(transaction);
 
             Console.ReadLine();
         }

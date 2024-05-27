@@ -25,6 +25,42 @@ namespace Server
             return null;
         }
 
+        public bool ChangeAccountBalance(string account_id, float change)
+        {
+            string sqlQuery = $"UPDATE racun SET stanje = stanje + {change} " +
+                $"WHERE broj_racuna = '{account_id}'";
+
+            string check_query = $"SELECT COUNT(*) FROM racun WHERE broj_racuna = '{account_id}'";
+
+            if (Database.ExecuteSelectCommand(check_query).Count == 0)
+            {
+                return false;
+            }
+
+
+            return Database.ExecuteNonQueryCommand(sqlQuery);
+        }
+
+        public bool ChangeUserPassword(string user_id, string new_password, string current_password)
+        {
+
+            string check_query = $"SELECT COUNT(*) FROM korisnik WHERE jmbg_korisnika = '{user_id}'";
+            string password_query = $"SELECT password FROM korisnik WHERE jmbg_korisnika = '{user_id}'";
+
+            if (Database.ExecuteSelectCommand(check_query).Count == 0 || Hash.HashPassword(current_password) != (string)Database.ExecuteSelectCommand(password_query)[0]["password"])
+            {
+                return false;
+            }
+
+            
+
+
+            string sqlQuery = $"UPDATE korisnik SET password='{Hash.HashPassword(new_password)}' " +
+                $"WHERE jmbg_korisnika = '{user_id}'";
+
+            return Database.ExecuteNonQueryCommand(sqlQuery);
+        }
+
         public void CreateAccount(Account account)
         {
             string sqlQuery = $"INSERT INTO racun VALUES('{account.AccountNumber}', {account.BranchId}, {account.BankId}, '{account.LenderJMBG}', {account.Balance})";
@@ -119,7 +155,9 @@ namespace Server
                 throw new FaultException<CException>(exception);
             }
 
-            //TODO: Update both parties balances
+            ChangeAccountBalance(transaction.SenderAccountID, -transaction.Amount);
+            ChangeAccountBalance(transaction.ReciverAccountID, transaction.Amount - (transaction.Amount*transaction.BankFeeProcentage/100));
+            ChangeAccountBalance("0-00-0", transaction.Amount * transaction.BankFeeProcentage / 100); // Bank account
         }
 
         public void CreateUser(User user)
@@ -216,6 +254,22 @@ namespace Server
             return return_accounts;
         }
 
+        public List<Dictionary<int, string>> GetAllBankNamesWithIDs()
+        {
+            string sqlQuery = $"select id_banke, naziv_banke from banka";
+
+            List<Dictionary<string, object>> banks = Database.ExecuteSelectCommand(sqlQuery);
+            List<Dictionary<int, string>> return_values = new List<Dictionary<int, string>>();
+
+
+            foreach (Dictionary<string, object> bank in banks)
+            {
+                return_values.Add(new Dictionary<int, string> { { (int)bank["id_banke"] , (string)bank["naziv_banke"] }});
+            }
+
+            return return_values;
+        }
+
         public List<Bank> GetAllBanks()
         {
             throw new NotImplementedException(); // Will implement if nessesery
@@ -224,6 +278,22 @@ namespace Server
         public List<Branch> GetAllBranches()
         {
             throw new NotImplementedException(); // Will implement if nessesery
+        }
+
+        public List<Dictionary<int, string>> GetAllBranchNamesWithIDs()
+        {
+            string sqlQuery = $"select id_filijale, naziv_filijale from filijala";
+
+            List<Dictionary<string, object>> branches = Database.ExecuteSelectCommand(sqlQuery);
+            List<Dictionary<int, string>> return_values = new List<Dictionary<int, string>>();
+
+
+            foreach (Dictionary<string, object> branch in branches)
+            {
+                return_values.Add(new Dictionary<int, string> { { (int)branch["id_filijale"], (string)branch["naziv_filijale"] } });
+            }
+
+            return return_values;
         }
 
         public List<Loan> GetAllLoans()
@@ -298,6 +368,16 @@ namespace Server
             }
 
             return return_users;
+        }
+
+        public bool SetUserAdmin(string user_id)
+        {
+            string sqlQuery = $"UPDATE korisnik SET privileges={(int)PrivilagesEnum.Admin} WHERE jmbg_korisnika = '{user_id}'";
+
+          
+
+
+            return Database.ExecuteNonQueryCommand(sqlQuery);
         }
 
         public bool UpdateAccount(string account_id, Account account)
