@@ -15,21 +15,17 @@ namespace Client
     public partial class LogInForm : Form
     {
         IBank proxy;
+        ChannelFactory<IBank> ch;
+
         public LogInForm()
         {
             InitializeComponent();
 
-            ChannelFactory<IBank> ch = new ChannelFactory<IBank>(new BasicHttpBinding(),
+            ch = new ChannelFactory<IBank>(new BasicHttpBinding(),
                 new EndpointAddress("http://localhost:8000"));
             ch.Endpoint.EndpointBehaviors.Add(new CustomEndpointBehavior());
             proxy = ch.CreateChannel();
             
-
-            // Remove this
-            this.Hide();
-            MainPageForm mainPageForm = new MainPageForm();
-            mainPageForm.Closed += (s, args) => this.Close();
-            mainPageForm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -50,6 +46,8 @@ namespace Client
 
                 if (SessionManager.IsAdmin())
                 {
+                    
+                    ch.Close();
                     this.Hide();
                     MainPageForm mainPageForm = new MainPageForm();
                     mainPageForm.Closed += (s, args) => this.Close();
@@ -57,6 +55,7 @@ namespace Client
                 }
                 else
                 {
+                    ch.Close();
                     this.Hide();
                     MainPageForm mainPageForm = new MainPageForm();
                     mainPageForm.Closed += (s, args) => this.Close();
@@ -77,6 +76,8 @@ namespace Client
             if (username_tb.Text.Length == 0 || password_tb.Text.Length == 0)
             {
                 logIn_btn.Enabled = false;
+                username_tb.Text = "E-mail";
+                password_tb.Text = "Password";
             }
             else
             {

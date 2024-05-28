@@ -78,7 +78,7 @@ namespace Common
 
 
         [OperationContract]
-        List<Dictionary<int, string>> GetAllBankNamesWithIDs();
+        Dictionary<int, string> GetAllBankNamesWithIDs();
 
         #endregion
 
@@ -100,7 +100,7 @@ namespace Common
 
 
         [OperationContract]
-        List<Dictionary<int, string>> GetAllBranchNamesWithIDs();
+        Dictionary<int, string> GetAllBranchNamesWithIDs();
 
         #endregion
 

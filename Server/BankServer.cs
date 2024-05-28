@@ -155,9 +155,10 @@ namespace Server
                 throw new FaultException<CException>(exception);
             }
 
+            float bank_fee = transaction.Amount * transaction.BankFeeProcentage / 100;
             ChangeAccountBalance(transaction.SenderAccountID, -transaction.Amount);
-            ChangeAccountBalance(transaction.ReciverAccountID, transaction.Amount - (transaction.Amount*transaction.BankFeeProcentage/100));
-            ChangeAccountBalance("0-00-0", transaction.Amount * transaction.BankFeeProcentage / 100); // Bank account
+            ChangeAccountBalance(transaction.ReciverAccountID, transaction.Amount - bank_fee);
+            ChangeAccountBalance("0-00-0", bank_fee); // Bank account
         }
 
         public void CreateUser(User user)
@@ -254,17 +255,17 @@ namespace Server
             return return_accounts;
         }
 
-        public List<Dictionary<int, string>> GetAllBankNamesWithIDs()
+        public Dictionary<int, string> GetAllBankNamesWithIDs()
         {
             string sqlQuery = $"select id_banke, naziv_banke from banka";
 
             List<Dictionary<string, object>> banks = Database.ExecuteSelectCommand(sqlQuery);
-            List<Dictionary<int, string>> return_values = new List<Dictionary<int, string>>();
+            Dictionary<int, string> return_values = new Dictionary<int, string>();
 
 
             foreach (Dictionary<string, object> bank in banks)
             {
-                return_values.Add(new Dictionary<int, string> { { (int)bank["id_banke"] , (string)bank["naziv_banke"] }});
+                return_values.Add((int)bank["id_banke"], (string)bank["naziv_banke"]);
             }
 
             return return_values;
@@ -280,17 +281,17 @@ namespace Server
             throw new NotImplementedException(); // Will implement if nessesery
         }
 
-        public List<Dictionary<int, string>> GetAllBranchNamesWithIDs()
+        public Dictionary<int, string> GetAllBranchNamesWithIDs()
         {
             string sqlQuery = $"select id_filijale, naziv_filijale from filijala";
 
             List<Dictionary<string, object>> branches = Database.ExecuteSelectCommand(sqlQuery);
-            List<Dictionary<int, string>> return_values = new List<Dictionary<int, string>>();
+            Dictionary<int, string> return_values = new Dictionary<int, string>();
 
 
             foreach (Dictionary<string, object> branch in branches)
             {
-                return_values.Add(new Dictionary<int, string> { { (int)branch["id_filijale"], (string)branch["naziv_filijale"] } });
+                return_values.Add((int)branch["id_filijale"], (string)branch["naziv_filijale"]);
             }
 
             return return_values;
