@@ -55,26 +55,28 @@ namespace Client
             this.search_tab = new System.Windows.Forms.TabPage();
             this.transactions_tab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.account_combo = new System.Windows.Forms.ComboBox();
+            this.start_transaction_btn = new System.Windows.Forms.Button();
+            this.search_transaction_tb = new System.Windows.Forms.TextBox();
+            this.transactions = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transfer_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.account = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gross = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.net = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.transaction_type_combo = new System.Windows.Forms.ComboBox();
+            this.date_transaction_from = new System.Windows.Forms.DateTimePicker();
+            this.date_transaction_to = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.filter_btn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.dashboard_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -101,8 +103,8 @@ namespace Client
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.transactions_tab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transactions)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +125,7 @@ namespace Client
             this.tabControl1.Size = new System.Drawing.Size(950, 450);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
             // 
             // dashboard_tab
             // 
@@ -131,7 +133,7 @@ namespace Client
             this.dashboard_tab.Location = new System.Drawing.Point(140, 4);
             this.dashboard_tab.Name = "dashboard_tab";
             this.dashboard_tab.Padding = new System.Windows.Forms.Padding(3);
-            this.dashboard_tab.Size = new System.Drawing.Size(767, 442);
+            this.dashboard_tab.Size = new System.Drawing.Size(806, 442);
             this.dashboard_tab.TabIndex = 0;
             this.dashboard_tab.Text = "Dashboard";
             this.dashboard_tab.UseVisualStyleBackColor = true;
@@ -151,7 +153,7 @@ namespace Client
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(761, 436);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 436);
             this.splitContainer1.SplitterDistance = 92;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -169,7 +171,7 @@ namespace Client
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.label3);
-            this.splitContainer3.Size = new System.Drawing.Size(761, 92);
+            this.splitContainer3.Size = new System.Drawing.Size(800, 92);
             this.splitContainer3.SplitterDistance = 25;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -179,7 +181,7 @@ namespace Client
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(761, 25);
+            this.label4.Size = new System.Drawing.Size(800, 25);
             this.label4.TabIndex = 2;
             this.label4.Text = "Total Balance";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -190,7 +192,7 @@ namespace Client
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(761, 63);
+            this.label3.Size = new System.Drawing.Size(800, 63);
             this.label3.TabIndex = 3;
             this.label3.Text = "$5000";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -208,8 +210,8 @@ namespace Client
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer5);
-            this.splitContainer2.Size = new System.Drawing.Size(761, 340);
-            this.splitContainer2.SplitterDistance = 454;
+            this.splitContainer2.Size = new System.Drawing.Size(800, 340);
+            this.splitContainer2.SplitterDistance = 453;
             this.splitContainer2.TabIndex = 0;
             // 
             // splitContainer4
@@ -227,7 +229,7 @@ namespace Client
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer4.Size = new System.Drawing.Size(454, 340);
+            this.splitContainer4.Size = new System.Drawing.Size(453, 340);
             this.splitContainer4.SplitterDistance = 25;
             this.splitContainer4.TabIndex = 1;
             // 
@@ -237,7 +239,7 @@ namespace Client
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(454, 25);
+            this.label1.Size = new System.Drawing.Size(453, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Accounts";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -260,7 +262,7 @@ namespace Client
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(454, 311);
+            this.dataGridView1.Size = new System.Drawing.Size(453, 311);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -304,7 +306,7 @@ namespace Client
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer5.Size = new System.Drawing.Size(303, 340);
+            this.splitContainer5.Size = new System.Drawing.Size(343, 340);
             this.splitContainer5.SplitterDistance = 25;
             this.splitContainer5.TabIndex = 1;
             // 
@@ -314,7 +316,7 @@ namespace Client
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(303, 25);
+            this.label2.Size = new System.Drawing.Size(343, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Recent Transactions";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -335,7 +337,7 @@ namespace Client
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(303, 311);
+            this.dataGridView2.Size = new System.Drawing.Size(343, 311);
             this.dataGridView2.TabIndex = 0;
             // 
             // date
@@ -362,7 +364,7 @@ namespace Client
             this.accounts_tab.Location = new System.Drawing.Point(140, 4);
             this.accounts_tab.Name = "accounts_tab";
             this.accounts_tab.Padding = new System.Windows.Forms.Padding(3);
-            this.accounts_tab.Size = new System.Drawing.Size(767, 442);
+            this.accounts_tab.Size = new System.Drawing.Size(806, 442);
             this.accounts_tab.TabIndex = 1;
             this.accounts_tab.Text = "Accounts";
             this.accounts_tab.UseVisualStyleBackColor = true;
@@ -371,7 +373,7 @@ namespace Client
             // 
             this.loans_tab.Location = new System.Drawing.Point(140, 4);
             this.loans_tab.Name = "loans_tab";
-            this.loans_tab.Size = new System.Drawing.Size(767, 442);
+            this.loans_tab.Size = new System.Drawing.Size(806, 442);
             this.loans_tab.TabIndex = 2;
             this.loans_tab.Text = "Loans";
             this.loans_tab.UseVisualStyleBackColor = true;
@@ -380,7 +382,7 @@ namespace Client
             // 
             this.search_tab.Location = new System.Drawing.Point(140, 4);
             this.search_tab.Name = "search_tab";
-            this.search_tab.Size = new System.Drawing.Size(767, 442);
+            this.search_tab.Size = new System.Drawing.Size(806, 442);
             this.search_tab.TabIndex = 3;
             this.search_tab.Text = "Search";
             this.search_tab.UseVisualStyleBackColor = true;
@@ -401,7 +403,7 @@ namespace Client
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.transactions, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -414,39 +416,15 @@ namespace Client
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint_1);
             // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.transfer_type,
-            this.name,
-            this.description,
-            this.gross,
-            this.fee,
-            this.net,
-            this.dataGridViewTextBoxColumn3});
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 103);
-            this.dataGridView3.MultiSelect = false;
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(794, 330);
-            this.dataGridView3.TabIndex = 1;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.account_combo, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.start_transaction_btn, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.search_transaction_tb, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -455,36 +433,63 @@ namespace Client
             this.tableLayoutPanel2.Size = new System.Drawing.Size(794, 44);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // comboBox1
+            // account_combo
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 11);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(94, 21);
-            this.comboBox1.TabIndex = 0;
+            this.account_combo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.account_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.account_combo.FormattingEnabled = true;
+            this.account_combo.Location = new System.Drawing.Point(3, 11);
+            this.account_combo.Name = "account_combo";
+            this.account_combo.Size = new System.Drawing.Size(94, 21);
+            this.account_combo.TabIndex = 0;
+            this.account_combo.SelectedIndexChanged += new System.EventHandler(this.account_combo_SelectedIndexChanged);
             // 
-            // button1
+            // start_transaction_btn
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.start_transaction_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(697, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 38);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Start New Transaction";
-            this.button1.UseVisualStyleBackColor = true;
+            this.start_transaction_btn.Location = new System.Drawing.Point(697, 3);
+            this.start_transaction_btn.Name = "start_transaction_btn";
+            this.start_transaction_btn.Size = new System.Drawing.Size(94, 38);
+            this.start_transaction_btn.TabIndex = 1;
+            this.start_transaction_btn.Text = "Start New Transaction";
+            this.start_transaction_btn.UseVisualStyleBackColor = true;
+            this.start_transaction_btn.Click += new System.EventHandler(this.start_transaction_btn_Click);
             // 
-            // textBox1
+            // search_transaction_tb
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(103, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(588, 24);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Search";
+            this.search_transaction_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.search_transaction_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search_transaction_tb.Location = new System.Drawing.Point(103, 10);
+            this.search_transaction_tb.Name = "search_transaction_tb";
+            this.search_transaction_tb.Size = new System.Drawing.Size(588, 24);
+            this.search_transaction_tb.TabIndex = 2;
+            // 
+            // transactions
+            // 
+            this.transactions.AllowUserToAddRows = false;
+            this.transactions.AllowUserToDeleteRows = false;
+            this.transactions.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.transactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.transactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.transfer_type,
+            this.name,
+            this.account,
+            this.description,
+            this.gross,
+            this.fee,
+            this.net,
+            this.dataGridViewTextBoxColumn3});
+            this.transactions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.transactions.Location = new System.Drawing.Point(3, 103);
+            this.transactions.MultiSelect = false;
+            this.transactions.Name = "transactions";
+            this.transactions.ReadOnly = true;
+            this.transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.transactions.Size = new System.Drawing.Size(794, 330);
+            this.transactions.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -504,6 +509,13 @@ namespace Client
             this.name.Name = "name";
             this.name.ReadOnly = true;
             // 
+            // account
+            // 
+            this.account.HeaderText = "Account";
+            this.account.Name = "account";
+            this.account.ReadOnly = true;
+            this.account.Width = 50;
+            // 
             // description
             // 
             this.description.HeaderText = "Description";
@@ -521,6 +533,7 @@ namespace Client
             this.fee.HeaderText = "Fee";
             this.fee.Name = "fee";
             this.fee.ReadOnly = true;
+            this.fee.Width = 50;
             // 
             // net
             // 
@@ -537,17 +550,19 @@ namespace Client
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnCount = 5;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.comboBox2, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.dateTimePicker1, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.dateTimePicker2, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.transaction_type_combo, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.date_transaction_from, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.date_transaction_to, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label6, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label7, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.filter_btn, 3, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 53);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -557,28 +572,39 @@ namespace Client
             this.tableLayoutPanel3.Size = new System.Drawing.Size(794, 44);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
-            // comboBox2
+            // transaction_type_combo
             // 
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 20);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(194, 21);
-            this.comboBox2.TabIndex = 0;
+            this.transaction_type_combo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.transaction_type_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.transaction_type_combo.FormattingEnabled = true;
+            this.transaction_type_combo.Items.AddRange(new object[] {
+            "Any",
+            "Transfer From",
+            "Transfer To",
+            "Payment",
+            "Deposit",
+            "Withdrawal",
+            "Loan Disbursement",
+            "Loan Repayment",
+            "Refund"});
+            this.transaction_type_combo.Location = new System.Drawing.Point(3, 20);
+            this.transaction_type_combo.Name = "transaction_type_combo";
+            this.transaction_type_combo.Size = new System.Drawing.Size(194, 21);
+            this.transaction_type_combo.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // date_transaction_from
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(203, 20);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(194, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.date_transaction_from.Location = new System.Drawing.Point(203, 20);
+            this.date_transaction_from.Name = "date_transaction_from";
+            this.date_transaction_from.Size = new System.Drawing.Size(194, 20);
+            this.date_transaction_from.TabIndex = 1;
             // 
-            // dateTimePicker2
+            // date_transaction_to
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(403, 20);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(194, 20);
-            this.dateTimePicker2.TabIndex = 2;
+            this.date_transaction_to.Location = new System.Drawing.Point(403, 20);
+            this.date_transaction_to.Name = "date_transaction_to";
+            this.date_transaction_to.Size = new System.Drawing.Size(194, 20);
+            this.date_transaction_to.TabIndex = 2;
             // 
             // label5
             // 
@@ -607,6 +633,17 @@ namespace Client
             this.label7.TabIndex = 5;
             this.label7.Text = "Date To";
             // 
+            // filter_btn
+            // 
+            this.filter_btn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filter_btn.Location = new System.Drawing.Point(603, 20);
+            this.filter_btn.Name = "filter_btn";
+            this.filter_btn.Size = new System.Drawing.Size(94, 21);
+            this.filter_btn.TabIndex = 6;
+            this.filter_btn.Text = "Apply";
+            this.filter_btn.UseVisualStyleBackColor = true;
+            this.filter_btn.Click += new System.EventHandler(this.filter_btn_Click);
+            // 
             // MainPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -616,6 +653,7 @@ namespace Client
             this.ClientSize = new System.Drawing.Size(950, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainPageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bank";
             this.tabControl1.ResumeLayout(false);
             this.dashboard_tab.ResumeLayout(false);
@@ -643,9 +681,9 @@ namespace Client
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.transactions_tab.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transactions)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
@@ -680,25 +718,27 @@ namespace Client
         private DataGridViewTextBoxColumn amount;
         private DataGridViewTextBoxColumn type;
         private TableLayoutPanel tableLayoutPanel1;
-        private DataGridView dataGridView3;
+        private DataGridView transactions;
         private TableLayoutPanel tableLayoutPanel2;
-        private ComboBox comboBox1;
-        private Button button1;
-        private TextBox textBox1;
+        private ComboBox account_combo;
+        private Button start_transaction_btn;
+        private TextBox search_transaction_tb;
+        private TableLayoutPanel tableLayoutPanel3;
+        private ComboBox transaction_type_combo;
+        private DateTimePicker date_transaction_from;
+        private DateTimePicker date_transaction_to;
+        private Label label5;
+        private Label label6;
+        private Label label7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn transfer_type;
         private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn account;
         private DataGridViewTextBoxColumn description;
         private DataGridViewTextBoxColumn gross;
         private DataGridViewTextBoxColumn fee;
         private DataGridViewTextBoxColumn net;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private TableLayoutPanel tableLayoutPanel3;
-        private ComboBox comboBox2;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private Label label5;
-        private Label label6;
-        private Label label7;
+        private Button filter_btn;
     }
 }

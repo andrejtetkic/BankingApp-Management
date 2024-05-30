@@ -137,11 +137,117 @@ namespace Server
             }
         }
 
+        User GetUserFromAccount(string account)
+        {
+            string sqlQuery = $"select * from korisnik k join racun r on k.jmbg_korisnika=r.jmbg_korisnika where r.broj_racuna='{account}'";
+            List<Dictionary<string, object>> users = Database.ExecuteSelectCommand(sqlQuery);
+
+            if(users.Count == 0) return null;
+
+            return new User(users[0]);
+
+        }
+
+        Account GetAccountById(string accountId)
+        {
+            string sqlQuery = $"select * from racun where broj_racuna='{accountId}'";
+            List<Dictionary<string, object>> accounts = Database.ExecuteSelectCommand(sqlQuery);
+
+            if(accounts.Count == 0) return null;
+
+            return new Account(accounts[0]);
+        }
+
+        float GetBankFeeProcentage(string transaction_type)
+        {
+            float feePercentage = 0f;
+
+            switch (transaction_type)
+            {
+                case "inner":
+                    feePercentage = 0f;
+                    break;
+                case "transfer":
+                    feePercentage = 1.0f; // Example: 1% for transfers
+                    break;
+                case "Transfer":
+                    feePercentage = 1.0f; // Example: 1% for transfers
+                    break;
+                case "Deposit":
+                    feePercentage = 0.5f; // Example: 0.5% for deposits
+                    break;
+                case "Withdrawal":
+                    feePercentage = 1.5f; // Example: 1.5% for withdrawals
+                    break;
+                case "Payment":
+                    feePercentage = 1.0f; // Example: 1% for payments
+                    break;
+                case "Loan Disbursement":
+                    feePercentage = 0.2f; // Example: 0.2% for loan disbursements
+                    break;
+                case "Loan Repayment":
+                    feePercentage = 0.0f; // Example: 0% for loan repayments
+                    break;
+                case "Interest Payment":
+                    feePercentage = 0.0f; // Example: 0% for interest payments
+                    break;
+                case "Fee":
+                    feePercentage = 0.0f; // Example: 0% for fees
+                    break;
+                case "Refund":
+                    feePercentage = 0.0f; // Example: 0% for refunds
+                    break;
+                case "Adjustment":
+                    feePercentage = 0.0f; // Example: 0% for adjustments
+                    break;
+                default:
+                    feePercentage = 5f;
+                    break;
+            }
+
+            return feePercentage;
+        }
+
         public void CreateTransaction(Transaction transaction)
         {
+            CException exception = new CException("Something went Wrong");
+
+
+            User sender = GetUserFromAccount(transaction.SenderAccountID);
+            User reciver = GetUserFromAccount(transaction.ReciverAccountID);
+
+
+            if(sender == null || reciver == null)
+            {
+                exception.Reason = "Invalid Reciver Account";
+                throw new FaultException<CException>(exception);
+            }
+
+
+            Account reciver_account = GetAccountById(transaction.ReciverAccountID);
+            if(reciver_account == null)
+            {
+                exception.Reason = "Invalid Reciver Account";
+                throw new FaultException<CException>(exception);
+            }
+
+            transaction.ReciverBankID = reciver_account.BankId;
+            transaction.ReciverBranchID = reciver_account.BranchId;
+
+
+            if (sender.JMBG == reciver.JMBG)
+            {
+                transaction.BankFeeProcentage = GetBankFeeProcentage("inner");
+            }
+            else
+            {
+                transaction.BankFeeProcentage = GetBankFeeProcentage(transaction.TransactionType);
+            }
+
+            
+
             string sqlQuery = $"INSERT INTO Transactions VALUES('{transaction.SenderAccountID}', {transaction.SenderBranchID}, {transaction.SenderBankID}, '{transaction.ReciverAccountID}', {transaction.ReciverBranchID}, {transaction.ReciverBankID}, '{transaction.TransactionType}', {transaction.Amount}, '{transaction.TransactionDate}', '{transaction.Description}', {transaction.BankFeeProcentage})";
 
-            CException exception = new CException("Something went Wrong");
 
             try
             {
@@ -158,7 +264,7 @@ namespace Server
             float bank_fee = transaction.Amount * transaction.BankFeeProcentage / 100;
             ChangeAccountBalance(transaction.SenderAccountID, -transaction.Amount);
             ChangeAccountBalance(transaction.ReciverAccountID, transaction.Amount - bank_fee);
-            ChangeAccountBalance("0-00-0", bank_fee); // Bank account
+            ChangeAccountBalance("0000", bank_fee); // Bank account
         }
 
         public void CreateUser(User user)
@@ -339,12 +445,12 @@ namespace Server
             return return_transactions;
         }
 
-        public List<Transaction> GetAllTransactionsOfAccount(string account_id)
+        public List<Transaction> GetAllTransactionsOfAccount(string account_id, DateTime from, DateTime to)
         {
             //TODO
             string sqlQuery = $"SELECT t.* , iif(t.SenderAccountId = rs.broj_racuna, 'sent', 'received') [type] " +
                 $"FROM Transactions t left JOIN racun rs ON t.SenderAccountId = rs.broj_racuna OR " +
-                $"t.ReceiverAccountId = rs.broj_racuna WHERE rs.broj_racuna = '{account_id}'";
+                $"t.ReceiverAccountId = rs.broj_racuna WHERE rs.broj_racuna = '{account_id}' and t.TransactionDate BETWEEN '{from}' and '{to}'";
 
             List<Dictionary<string, object>> transactions = Database.ExecuteSelectCommand(sqlQuery);
 
@@ -369,6 +475,18 @@ namespace Server
             }
 
             return return_users;
+        }
+
+        public string GetNameOfAccountOwner(string account_id)
+        {
+            string sqlQuery = $"SELECT k.ime, k.prezime FROM korisnik k INNER JOIN racun r ON k.jmbg_korisnika = r.jmbg_korisnika WHERE r.broj_racuna = '{account_id}'";
+
+            List<Dictionary<string, object>> res = Database.ExecuteSelectCommand(sqlQuery);
+
+            string return_name = "";
+            if(res.Count > 0) return_name = (string)res[0]["ime"] + " " + (string)res[0]["prezime"];
+
+            return return_name;
         }
 
         public bool SetUserAdmin(string user_id)

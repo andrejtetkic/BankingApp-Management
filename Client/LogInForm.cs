@@ -20,6 +20,9 @@ namespace Client
         public LogInForm()
         {
             InitializeComponent();
+            Utilities.SetTextBoxPlaceholder(username_tb, "E-mail");
+            Utilities.SetTextBoxPlaceholder(password_tb, "Password");
+
 
             ch = new ChannelFactory<IBank>(new BasicHttpBinding(),
                 new EndpointAddress("http://localhost:8000"));
@@ -73,11 +76,9 @@ namespace Client
 
         private void onLogInInputChange(object sender, EventArgs e)
         {
-            if (username_tb.Text.Length == 0 || password_tb.Text.Length == 0)
+            if (username_tb.Text == "E-mail" && password_tb.Text == "Password")
             {
                 logIn_btn.Enabled = false;
-                username_tb.Text = "E-mail";
-                password_tb.Text = "Password";
             }
             else
             {
@@ -90,9 +91,9 @@ namespace Client
         private void register_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SignUpForm signUpForm = new SignUpForm();
-            signUpForm.Closed += (s, args) => this.Close();
-            signUpForm.Show();
+            Register registerForm = new Register();
+            registerForm.Closed += (s, args) => this.Close();
+            registerForm.Show();
 
         }
     }

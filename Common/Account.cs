@@ -64,5 +64,10 @@ namespace Common
         {
             return formattedId.Replace("-", "");
         }
+
+        public static string FormatID(string id)
+        {
+            return $"{id[0]}-{id.Substring(1, 2)}-{id[3]}";
+        }
     }
 }

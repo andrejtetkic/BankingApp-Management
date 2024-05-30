@@ -29,6 +29,9 @@ namespace Common
         [OperationContract]
         bool DeleteAccount(string accout_id);
 
+        [OperationContract]
+        string GetNameOfAccountOwner(string account_id);
+
         #endregion
 
 
@@ -138,7 +141,7 @@ namespace Common
 
 
         [OperationContract]
-        List<Transaction> GetAllTransactionsOfAccount(string account_id);
+        List<Transaction> GetAllTransactionsOfAccount(string account_id, DateTime from, DateTime to);
 
         [OperationContract]
         bool UpdateTransaction(int transaction_id, Transaction transaction);

@@ -84,7 +84,7 @@
             this.username_tb.Name = "username_tb";
             this.username_tb.Size = new System.Drawing.Size(294, 29);
             this.username_tb.TabIndex = 1;
-            this.username_tb.Text = "E-mail";
+            this.username_tb.Text = "E-mail ";
             this.username_tb.TextChanged += new System.EventHandler(this.onLogInInputChange);
             // 
             // password_tb
@@ -102,18 +102,24 @@
             // logIn_btn
             // 
             this.logIn_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.logIn_btn.BackColor = System.Drawing.Color.SteelBlue;
+            this.logIn_btn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.logIn_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logIn_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logIn_btn.ForeColor = System.Drawing.Color.White;
             this.logIn_btn.Location = new System.Drawing.Point(33, 351);
             this.logIn_btn.Name = "logIn_btn";
             this.logIn_btn.Size = new System.Drawing.Size(294, 44);
             this.logIn_btn.TabIndex = 3;
             this.logIn_btn.Text = "LogIn";
-            this.logIn_btn.UseVisualStyleBackColor = true;
+            this.logIn_btn.UseVisualStyleBackColor = false;
             this.logIn_btn.Click += new System.EventHandler(this.button1_Click);
             // 
             // register_btn
             // 
             this.register_btn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.register_btn.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.register_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.register_btn.Location = new System.Drawing.Point(212, 258);
             this.register_btn.Name = "register_btn";
             this.register_btn.Size = new System.Drawing.Size(115, 23);
