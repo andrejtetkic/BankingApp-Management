@@ -106,6 +106,7 @@ namespace Client
                 { transactions_tab, TransactionsLoad},
                 { accounts_tab, AccountsLoad},
                 { loans_tab, LoansLoad},
+                { user_profile_tab, UserSettingsLoad }
             };
         }
 
@@ -179,6 +180,15 @@ namespace Client
                 loans_view.Rows.Add(loan.ID, loan.Name, bankID2Name[loan.BankID], "$" + loan.Amount, Account.FormatID(loan.AccountNumber), loan.Interest, "$" + -loan.Balance);
             }
 
+        }
+
+        private void UserSettingsLoad()
+        {
+            User active_user = proxy.GetUser(SessionManager.GetCurrentUser().UserId);
+            f_name_tb.Text = active_user.Ime;
+            l_name_tb.Text = active_user.Prezime;
+            email_tb.Text = active_user.Email;
+        
         }
 
         private void SetTransactions()
@@ -289,6 +299,28 @@ namespace Client
 
             
             LoansLoad();
+        }
+
+        private void reset_btn_Click(object sender, EventArgs e)
+        {
+            UserSettingsLoad();
+        }
+
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            User active_user = new User();
+
+            active_user.Ime = f_name_tb.Text;
+            active_user.Prezime = l_name_tb.Text;
+            active_user.Email = email_tb.Text;
+
+            proxy.UpdateUser(SessionManager.GetCurrentUser().UserId, active_user);
+        }
+
+        private void change_pass_btn_Click(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword(proxy);
+            changePassword.ShowDialog();
         }
     }
 }

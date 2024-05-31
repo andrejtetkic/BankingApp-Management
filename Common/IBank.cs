@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace Common
 {
@@ -42,6 +43,9 @@ namespace Common
 
         [OperationContract]
         List<User> GetAllUsers();
+
+        [OperationContract]
+        User GetUser(string user_id);
 
         [OperationContract]
         bool UpdateUser(string user_id, User user);

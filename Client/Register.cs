@@ -38,8 +38,8 @@ namespace Client
 
         private void register_btn_Click(object sender, EventArgs e)
         {
-            // Check Register
-            if(f_name_tb.Text == "First Name" || l_name_tb.Text == "Last Name" || email_tb.Text == "E-mail" || jmbg_tb.Text == "JMBG" || password_tb.Text == "Password" || password_again_tb.Text == "Password Again")
+            register_lb_error.Visible = true;
+            if (f_name_tb.Text == "First Name" || l_name_tb.Text == "Last Name" || email_tb.Text == "E-mail" || jmbg_tb.Text == "JMBG" || password_tb.Text == "Password" || password_again_tb.Text == "Password Again")
             {
                 register_lb_error.Text = "You must fill out everything";
                 return;

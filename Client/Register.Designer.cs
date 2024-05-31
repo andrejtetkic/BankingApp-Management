@@ -193,6 +193,7 @@
             this.register_lb_error.TabIndex = 3;
             this.register_lb_error.Text = "Something went Wrong";
             this.register_lb_error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.register_lb_error.Visible = false;
             // 
             // tableLayoutPanel4
             // 

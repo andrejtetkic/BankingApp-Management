@@ -44,10 +44,9 @@ namespace Server
         public bool ChangeUserPassword(string user_id, string new_password, string current_password)
         {
 
-            string check_query = $"SELECT COUNT(*) FROM korisnik WHERE jmbg_korisnika = '{user_id}'";
             string password_query = $"SELECT password FROM korisnik WHERE jmbg_korisnika = '{user_id}'";
 
-            if (Database.ExecuteSelectCommand(check_query).Count == 0 || Hash.HashPassword(current_password) != (string)Database.ExecuteSelectCommand(password_query)[0]["password"])
+            if (Hash.HashPassword(current_password) != (string)Database.ExecuteSelectCommand(password_query)[0]["password"])
             {
                 return false;
             }
@@ -64,7 +63,7 @@ namespace Server
         public bool ChangeLoanBalance(string account_number, float change)
         {
             string sqlQuery = $"UPDATE kredit SET stanje = stanje + {change} " +
-                $"WHERE broj_racuna = {account_number}";
+                $"WHERE broj_racuna = '{account_number}' and stanje < 0" ;
 
 
             return Database.ExecuteNonQueryCommand(sqlQuery);
@@ -349,7 +348,7 @@ namespace Server
 
             if(transaction.TransactionType == "Loan Repayment")
             {
-                ChangeLoanBalance(transaction.ReciverAccountID, -transaction.Amount);
+                ChangeLoanBalance(transaction.SenderAccountID, transaction.Amount);
             }
 
             float bank_fee = transaction.Amount * transaction.BankFeeProcentage / 100;
@@ -676,14 +675,17 @@ namespace Server
             string sqlQuery = $"UPDATE korisnik SET ime = '{user.Ime}', " +
                 $"prezime = '{user.Prezime}', email='{user.Email}' WHERE jmbg_korisnika = '{user_id}'";
 
-            string check_query = $"SELECT * FROM korisnik WHERE jmbg_korisnika='{user_id}'";
-            if (!Database.ExecuteScalarCommand(check_query))
-            {
-                return false;
-            }
-
-
             return Database.ExecuteNonQueryCommand(sqlQuery);
+        }
+
+        public User GetUser(string user_id)
+        {
+            string sqlQuery = $"select * from korisnik where jmbg_korisnika='{user_id}'";
+            List<Dictionary<string, object>> users = Database.ExecuteSelectCommand(sqlQuery);
+
+            if (users.Count == 0) return null;
+
+            return new User(users[0]);
         }
     }
 }
