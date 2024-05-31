@@ -266,7 +266,7 @@ namespace Client
         private void accounts_data_view_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string account = (string)accounts_data_view[0, e.RowIndex].Value;
-            tabControl1.SelectedIndex = 4; // Set doubleClick page
+            tabControl1.SelectedIndex = 2; // Set doubleClick page
 
             TransactionsLoad();
             account_combo.SelectedIndex = account_combo.Items.IndexOf(account);

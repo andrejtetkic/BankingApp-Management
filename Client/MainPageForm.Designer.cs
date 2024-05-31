@@ -30,6 +30,7 @@ namespace Client
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPageForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.dashboard_tab = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -58,7 +59,6 @@ namespace Client
             this.branch_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.balance_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loans_tab = new System.Windows.Forms.TabPage();
-            this.search_tab = new System.Windows.Forms.TabPage();
             this.transactions_tab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -98,6 +98,12 @@ namespace Client
             this.loan_account = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.interest_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loan_balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_profile_tab = new System.Windows.Forms.TabPage();
+            this.about_tab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.dashboard_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -135,6 +141,9 @@ namespace Client
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loans_view)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
+            this.about_tab.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -142,9 +151,10 @@ namespace Client
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControl1.Controls.Add(this.dashboard_tab);
             this.tabControl1.Controls.Add(this.accounts_tab);
-            this.tabControl1.Controls.Add(this.loans_tab);
-            this.tabControl1.Controls.Add(this.search_tab);
             this.tabControl1.Controls.Add(this.transactions_tab);
+            this.tabControl1.Controls.Add(this.loans_tab);
+            this.tabControl1.Controls.Add(this.user_profile_tab);
+            this.tabControl1.Controls.Add(this.about_tab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(44, 136);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -467,15 +477,6 @@ namespace Client
             this.loans_tab.TabIndex = 2;
             this.loans_tab.Text = "Loans";
             this.loans_tab.UseVisualStyleBackColor = true;
-            // 
-            // search_tab
-            // 
-            this.search_tab.Location = new System.Drawing.Point(140, 4);
-            this.search_tab.Name = "search_tab";
-            this.search_tab.Size = new System.Drawing.Size(806, 442);
-            this.search_tab.TabIndex = 3;
-            this.search_tab.Text = "Search";
-            this.search_tab.UseVisualStyleBackColor = true;
             // 
             // transactions_tab
             // 
@@ -888,6 +889,84 @@ namespace Client
             this.loan_balance.Name = "loan_balance";
             this.loan_balance.ReadOnly = true;
             // 
+            // user_profile_tab
+            // 
+            this.user_profile_tab.Location = new System.Drawing.Point(140, 4);
+            this.user_profile_tab.Name = "user_profile_tab";
+            this.user_profile_tab.Padding = new System.Windows.Forms.Padding(3);
+            this.user_profile_tab.Size = new System.Drawing.Size(806, 442);
+            this.user_profile_tab.TabIndex = 5;
+            this.user_profile_tab.Text = "User Profile";
+            this.user_profile_tab.UseVisualStyleBackColor = true;
+            // 
+            // about_tab
+            // 
+            this.about_tab.Controls.Add(this.tableLayoutPanel8);
+            this.about_tab.Location = new System.Drawing.Point(140, 4);
+            this.about_tab.Name = "about_tab";
+            this.about_tab.Size = new System.Drawing.Size(806, 442);
+            this.about_tab.TabIndex = 6;
+            this.about_tab.Text = "About Creator";
+            this.about_tab.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.59554F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.40447F));
+            this.tableLayoutPanel8.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label11, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.pictureBox1, 1, 1);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.18552F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.81448F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(806, 442);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(563, 129);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "This is a simple Bank Management System Simulation. You can perform Transactions," +
+    " create Accounts, and Apply for Loans (which are accepted immediately because th" +
+    "e creator was lazy)";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(572, 132);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(231, 307);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 129);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(563, 313);
+            this.label11.TabIndex = 3;
+            this.label11.Text = resources.GetString("label11.Text");
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -940,6 +1019,10 @@ namespace Client
             ((System.ComponentModel.ISupportInitialize)(this.loans_view)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
+            this.about_tab.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -950,7 +1033,6 @@ namespace Client
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage accounts_tab;
         private TabPage loans_tab;
-        private TabPage search_tab;
         private TabPage dashboard_tab;
         private SplitContainer splitContainer1;
         private SplitContainer splitContainer2;
@@ -1015,5 +1097,11 @@ namespace Client
         private DataGridViewTextBoxColumn loan_account;
         private DataGridViewTextBoxColumn interest_rate;
         private DataGridViewTextBoxColumn loan_balance;
+        private TabPage user_profile_tab;
+        private TabPage about_tab;
+        private TableLayoutPanel tableLayoutPanel8;
+        private Label label10;
+        private PictureBox pictureBox1;
+        private Label label11;
     }
 }

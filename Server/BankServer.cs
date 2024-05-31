@@ -61,6 +61,15 @@ namespace Server
             return Database.ExecuteNonQueryCommand(sqlQuery);
         }
 
+        public bool ChangeLoanBalance(string account_number, float change)
+        {
+            string sqlQuery = $"UPDATE kredit SET stanje = stanje + {change} " +
+                $"WHERE broj_racuna = {account_number}";
+
+
+            return Database.ExecuteNonQueryCommand(sqlQuery);
+        }
+
         public void CreateAccount(Account account)
         {
 
@@ -134,6 +143,26 @@ namespace Server
             {
                 CException exception = new CException("Your Account is not in the Selected Bank");
                 throw new FaultException<CException>(exception);
+            }
+
+            if (loan.Amount <= 0)
+            {
+                CException exception = new CException("Cannot have negative Amount");
+                throw new FaultException<CException>(exception);
+            }
+
+            string check_query = $"SELECT stanje FROM kredit WHERE broj_racuna = '{loan.AccountNumber}'";
+
+            List<Dictionary<string, object>> select = Database.ExecuteSelectCommand(check_query);
+
+
+            foreach (Dictionary<string, object> s in select)
+            {
+                if (Convert.ToSingle(s["stanje"]) < 0)
+                {
+                    CException exception = new CException("Cannot have Multiple Active Loans on the same Account");
+                    throw new FaultException<CException>(exception);
+                }
             }
 
             loan.Interest = 5;
@@ -317,10 +346,18 @@ namespace Server
                 throw new FaultException<CException>(exception);
             }
 
+
+            if(transaction.TransactionType == "Loan Repayment")
+            {
+                ChangeLoanBalance(transaction.ReciverAccountID, -transaction.Amount);
+            }
+
             float bank_fee = transaction.Amount * transaction.BankFeeProcentage / 100;
             ChangeAccountBalance(transaction.SenderAccountID, -transaction.Amount);
             ChangeAccountBalance(transaction.ReciverAccountID, transaction.Amount - bank_fee);
             ChangeAccountBalance($"{transaction.SenderBankID.ToString("D4")}", bank_fee); // Bank account
+
+
         }
 
         public void CreateUser(User user)
