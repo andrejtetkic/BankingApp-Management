@@ -80,6 +80,7 @@ namespace Client
 
         private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
+            accounts_data_view.Rows.Clear();
 
         }
 
@@ -102,6 +103,7 @@ namespace Client
             {
                 { dashboard_tab, DashboardLoad },
                 { transactions_tab, TransactionsLoad},
+                { accounts_tab, AccountsLoad},
             };
         }
 
@@ -150,11 +152,25 @@ namespace Client
             label3.Text = "$" + totalBalance.ToString();
         }
 
+        private void AccountsLoad()
+        {
+            accounts_data_view.Rows.Clear();
+
+            lstAccount = proxy.GetAllAccountsOfUser(SessionManager.GetCurrentUser().UserId);
+            bankID2Name = proxy.GetAllBankNamesWithIDs();
+            branchId2Name = proxy.GetAllBranchNamesWithIDs();
+
+            foreach (Account account in lstAccount)
+            {
+                accounts_data_view.Rows.Add(account.ProperAccountNumber, bankID2Name[account.BankId], branchId2Name[account.BranchId], "$" + account.Balance);
+            }
+        }
+
         private void SetTransactions()
         {
             transactions.Rows.Clear();
 
-            lstTransactions = proxy.GetAllTransactionsOfAccount( //TODO: set that date down there
+            lstTransactions = proxy.GetAllTransactionsOfAccount(
                 Account.UnFormatID(account_combo.Text), date_transaction_from.Value, date_transaction_to.Value);
 
             foreach (Transaction tran in lstTransactions)
@@ -213,12 +229,11 @@ namespace Client
 
             }
         }
+
         private void account_combo_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetTransactions();
         }
-
-        
 
         private void filter_btn_Click(object sender, EventArgs e)
         {
@@ -231,6 +246,23 @@ namespace Client
             new_transaction_form.ShowDialog();
 
             SetTransactions();
+        }
+
+        private void accounts_data_view_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string account = (string)accounts_data_view[0, e.RowIndex].Value;
+            tabControl1.SelectedIndex = 4; // Set doubleClick page
+
+            TransactionsLoad();
+            account_combo.SelectedIndex = account_combo.Items.IndexOf(account);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CreateAccount createAccount = new CreateAccount(proxy);
+            createAccount.ShowDialog();
+
+            AccountsLoad();
         }
     }
 }

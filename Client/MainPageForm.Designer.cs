@@ -51,6 +51,12 @@ namespace Client
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accounts_tab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.accounts_data_view = new System.Windows.Forms.DataGridView();
+            this.acc_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bank_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branch_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.balance_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loans_tab = new System.Windows.Forms.TabPage();
             this.search_tab = new System.Windows.Forms.TabPage();
             this.transactions_tab = new System.Windows.Forms.TabPage();
@@ -77,6 +83,9 @@ namespace Client
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.filter_btn = new System.Windows.Forms.Button();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.dashboard_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -101,11 +110,15 @@ namespace Client
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.accounts_tab.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accounts_data_view)).BeginInit();
             this.transactions_tab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transactions)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -361,6 +374,7 @@ namespace Client
             // 
             // accounts_tab
             // 
+            this.accounts_tab.Controls.Add(this.tableLayoutPanel4);
             this.accounts_tab.Location = new System.Drawing.Point(140, 4);
             this.accounts_tab.Name = "accounts_tab";
             this.accounts_tab.Padding = new System.Windows.Forms.Padding(3);
@@ -368,6 +382,65 @@ namespace Client
             this.accounts_tab.TabIndex = 1;
             this.accounts_tab.Text = "Accounts";
             this.accounts_tab.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.accounts_data_view, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(800, 436);
+            this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // accounts_data_view
+            // 
+            this.accounts_data_view.AllowUserToAddRows = false;
+            this.accounts_data_view.AllowUserToDeleteRows = false;
+            this.accounts_data_view.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.accounts_data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.accounts_data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.acc_number,
+            this.bank_acc,
+            this.branch_acc,
+            this.balance_acc});
+            this.accounts_data_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.accounts_data_view.Location = new System.Drawing.Point(3, 53);
+            this.accounts_data_view.Name = "accounts_data_view";
+            this.accounts_data_view.ReadOnly = true;
+            this.accounts_data_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.accounts_data_view.Size = new System.Drawing.Size(794, 380);
+            this.accounts_data_view.TabIndex = 0;
+            this.accounts_data_view.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.accounts_data_view_CellDoubleClick);
+            // 
+            // acc_number
+            // 
+            this.acc_number.HeaderText = "Account Number";
+            this.acc_number.Name = "acc_number";
+            this.acc_number.ReadOnly = true;
+            // 
+            // bank_acc
+            // 
+            this.bank_acc.HeaderText = "Bank";
+            this.bank_acc.Name = "bank_acc";
+            this.bank_acc.ReadOnly = true;
+            // 
+            // branch_acc
+            // 
+            this.branch_acc.HeaderText = "Branch";
+            this.branch_acc.Name = "branch_acc";
+            this.branch_acc.ReadOnly = true;
+            // 
+            // balance_acc
+            // 
+            this.balance_acc.HeaderText = "Balance";
+            this.balance_acc.Name = "balance_acc";
+            this.balance_acc.ReadOnly = true;
             // 
             // loans_tab
             // 
@@ -644,6 +717,43 @@ namespace Client
             this.filter_btn.UseVisualStyleBackColor = true;
             this.filter_btn.Click += new System.EventHandler(this.filter_btn_Click);
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.button1, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label8, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(794, 44);
+            this.tableLayoutPanel5.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button1.Location = new System.Drawing.Point(681, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 34);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Open New Account";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(114, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(168, 44);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Double click to View Transactions";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -679,6 +789,9 @@ namespace Client
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.accounts_tab.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.accounts_data_view)).EndInit();
             this.transactions_tab.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -686,6 +799,8 @@ namespace Client
             ((System.ComponentModel.ISupportInitialize)(this.transactions)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -740,5 +855,14 @@ namespace Client
         private DataGridViewTextBoxColumn net;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private Button filter_btn;
+        private DataGridView accounts_data_view;
+        private TableLayoutPanel tableLayoutPanel4;
+        private DataGridViewTextBoxColumn acc_number;
+        private DataGridViewTextBoxColumn bank_acc;
+        private DataGridViewTextBoxColumn branch_acc;
+        private DataGridViewTextBoxColumn balance_acc;
+        private TableLayoutPanel tableLayoutPanel5;
+        private Button button1;
+        private Label label8;
     }
 }

@@ -30,7 +30,7 @@ namespace Common
         public Account()
         {
             this.account_number = "";
-            this.proper_account_number = $"{this.account_number[0]}-{this.account_number.Substring(1, 2)}-{this.account_number[3]}"; ;
+            this.proper_account_number = "";
             this.branch_id = 0;
             this.bank_id = 0;
             this.lender_jmbg = "";

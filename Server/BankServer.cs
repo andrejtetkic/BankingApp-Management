@@ -63,6 +63,13 @@ namespace Server
 
         public void CreateAccount(Account account)
         {
+
+            if(account.AccountNumber.Length != 4)
+            {
+                CException exception = new CException($"Invalid Account Number Format");
+                throw new FaultException<CException>(exception);
+            }
+
             string sqlQuery = $"INSERT INTO racun VALUES('{account.AccountNumber}', {account.BranchId}, {account.BankId}, '{account.LenderJMBG}', {account.Balance})";
             try
             {
@@ -74,7 +81,7 @@ namespace Server
             }
             catch (Exception)
             {
-                CException exception = new CException("Something went Wrong");
+                CException exception = new CException($"Account Number already exists!");
                 throw new FaultException<CException>(exception);
             }
         }
@@ -355,7 +362,7 @@ namespace Server
 
         public List<Account> GetAllAccountsOfUser(string user_id)
         {
-            string sqlQuery = $"select * from racun where jmbg_korisnika={user_id}";
+            string sqlQuery = $"select * from racun where jmbg_korisnika='{user_id}'";
             List<Dictionary<string, object>> accounts = Database.ExecuteSelectCommand(sqlQuery);
 
             List<Account> return_accounts = new List<Account>();
@@ -385,12 +392,34 @@ namespace Server
 
         public List<Bank> GetAllBanks()
         {
-            throw new NotImplementedException(); // Will implement if nessesery
+            string sqlQuery = $"select * from banka";
+
+            List<Dictionary<string, object>> branches = Database.ExecuteSelectCommand(sqlQuery);
+            List<Bank> return_values = new List<Bank>();
+
+
+            foreach (Dictionary<string, object> branch in branches)
+            {
+                return_values.Add(new Bank(branch));
+            }
+
+            return return_values;
         }
 
         public List<Branch> GetAllBranches()
         {
-            throw new NotImplementedException(); // Will implement if nessesery
+            string sqlQuery = $"select * from filijala";
+
+            List<Dictionary<string, object>> branches = Database.ExecuteSelectCommand(sqlQuery);
+            List<Branch> return_values = new List<Branch>();
+
+
+            foreach (Dictionary<string, object> branch in branches)
+            {
+                return_values.Add(new Branch(branch));
+            }
+
+            return return_values;
         }
 
         public Dictionary<int, string> GetAllBranchNamesWithIDs()
