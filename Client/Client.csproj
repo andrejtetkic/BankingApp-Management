@@ -53,6 +53,12 @@
     <Compile Include="CreateAccount.Designer.cs">
       <DependentUpon>CreateAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateLoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateLoan.Designer.cs">
+      <DependentUpon>CreateLoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomEndpointBehavior.cs" />
     <Compile Include="CustomMessageInspectior.cs" />
     <Compile Include="DotNetBarTabControl.cs">
@@ -89,6 +95,9 @@
     <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateLoan.resx">
+      <DependentUpon>CreateLoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>

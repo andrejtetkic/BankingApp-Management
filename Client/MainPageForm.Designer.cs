@@ -86,6 +86,18 @@ namespace Client
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.loans_view = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.loan_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loan_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loan_bank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.load_amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loan_account = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.interest_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loan_balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.dashboard_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -113,12 +125,16 @@ namespace Client
             this.accounts_tab.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accounts_data_view)).BeginInit();
+            this.loans_tab.SuspendLayout();
             this.transactions_tab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transactions)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loans_view)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -444,6 +460,7 @@ namespace Client
             // 
             // loans_tab
             // 
+            this.loans_tab.Controls.Add(this.tableLayoutPanel6);
             this.loans_tab.Location = new System.Drawing.Point(140, 4);
             this.loans_tab.Name = "loans_tab";
             this.loans_tab.Size = new System.Drawing.Size(806, 442);
@@ -754,6 +771,123 @@ namespace Client
             this.label8.Text = "Double click to View Transactions";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.loans_view, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(806, 442);
+            this.tableLayoutPanel6.TabIndex = 2;
+            // 
+            // loans_view
+            // 
+            this.loans_view.AllowUserToAddRows = false;
+            this.loans_view.AllowUserToDeleteRows = false;
+            this.loans_view.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.loans_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.loans_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.loan_number,
+            this.loan_name,
+            this.loan_bank,
+            this.load_amount,
+            this.loan_account,
+            this.interest_rate,
+            this.loan_balance});
+            this.loans_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loans_view.Location = new System.Drawing.Point(3, 53);
+            this.loans_view.Name = "loans_view";
+            this.loans_view.ReadOnly = true;
+            this.loans_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.loans_view.Size = new System.Drawing.Size(800, 386);
+            this.loans_view.TabIndex = 0;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(800, 44);
+            this.tableLayoutPanel7.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button2.Location = new System.Drawing.Point(687, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 34);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Request a Loan";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(134, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(131, 44);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "My Loans";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // loan_number
+            // 
+            this.loan_number.HeaderText = "Loan Number";
+            this.loan_number.Name = "loan_number";
+            this.loan_number.ReadOnly = true;
+            // 
+            // loan_name
+            // 
+            this.loan_name.HeaderText = "Name";
+            this.loan_name.Name = "loan_name";
+            this.loan_name.ReadOnly = true;
+            // 
+            // loan_bank
+            // 
+            this.loan_bank.HeaderText = "Bank";
+            this.loan_bank.Name = "loan_bank";
+            this.loan_bank.ReadOnly = true;
+            // 
+            // load_amount
+            // 
+            this.load_amount.HeaderText = "Amount";
+            this.load_amount.Name = "load_amount";
+            this.load_amount.ReadOnly = true;
+            // 
+            // loan_account
+            // 
+            this.loan_account.HeaderText = "To Account";
+            this.loan_account.Name = "loan_account";
+            this.loan_account.ReadOnly = true;
+            // 
+            // interest_rate
+            // 
+            this.interest_rate.HeaderText = "Interest Rate";
+            this.interest_rate.Name = "interest_rate";
+            this.interest_rate.ReadOnly = true;
+            // 
+            // loan_balance
+            // 
+            this.loan_balance.HeaderText = "Left to Pay";
+            this.loan_balance.Name = "loan_balance";
+            this.loan_balance.ReadOnly = true;
+            // 
             // MainPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -792,6 +926,7 @@ namespace Client
             this.accounts_tab.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.accounts_data_view)).EndInit();
+            this.loans_tab.ResumeLayout(false);
             this.transactions_tab.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -801,6 +936,10 @@ namespace Client
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.loans_view)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -864,5 +1003,17 @@ namespace Client
         private TableLayoutPanel tableLayoutPanel5;
         private Button button1;
         private Label label8;
+        private TableLayoutPanel tableLayoutPanel6;
+        private DataGridView loans_view;
+        private TableLayoutPanel tableLayoutPanel7;
+        private Button button2;
+        private Label label9;
+        private DataGridViewTextBoxColumn loan_number;
+        private DataGridViewTextBoxColumn loan_name;
+        private DataGridViewTextBoxColumn loan_bank;
+        private DataGridViewTextBoxColumn load_amount;
+        private DataGridViewTextBoxColumn loan_account;
+        private DataGridViewTextBoxColumn interest_rate;
+        private DataGridViewTextBoxColumn loan_balance;
     }
 }

@@ -25,6 +25,7 @@ namespace Client
         Dictionary<int, string> branchId2Name;
         List<Transaction> lstTransactions;
         float totalBalance;
+        List<Loan> lstLoans;
 
         public MainPageForm()
         {
@@ -104,6 +105,7 @@ namespace Client
                 { dashboard_tab, DashboardLoad },
                 { transactions_tab, TransactionsLoad},
                 { accounts_tab, AccountsLoad},
+                { loans_tab, LoansLoad},
             };
         }
 
@@ -164,6 +166,19 @@ namespace Client
             {
                 accounts_data_view.Rows.Add(account.ProperAccountNumber, bankID2Name[account.BankId], branchId2Name[account.BranchId], "$" + account.Balance);
             }
+        }
+
+        private void LoansLoad()
+        {
+            loans_view.Rows.Clear();
+
+            lstLoans = proxy.GetAllLoansOfUser(SessionManager.GetCurrentUser().UserId);
+
+            foreach (Loan loan in lstLoans)
+            {
+                loans_view.Rows.Add(loan.ID, loan.Name, bankID2Name[loan.BankID], "$" + loan.Amount, Account.FormatID(loan.AccountNumber), loan.Interest, "$" + -loan.Balance);
+            }
+
         }
 
         private void SetTransactions()
@@ -262,7 +277,18 @@ namespace Client
             CreateAccount createAccount = new CreateAccount(proxy);
             createAccount.ShowDialog();
 
+
+            lstAccount = proxy.GetAllAccountsOfUser(SessionManager.GetCurrentUser().UserId);
             AccountsLoad();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CreateLoan createLoan = new CreateLoan(proxy, lstAccount);
+            createLoan.ShowDialog();
+
+            
+            LoansLoad();
         }
     }
 }

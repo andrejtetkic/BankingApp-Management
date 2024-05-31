@@ -127,7 +127,21 @@ namespace Server
 
         public void CreateLoan(Loan loan)
         {
-            string sqlQuery = $"INSERT INTO kredit VALUES({loan.BankID}, '{loan.LenderJMBG}', '{loan.Name}', {loan.Amount}, {loan.Interest})";
+
+            Account account = GetAccountById(loan.AccountNumber);
+
+            if (loan.BankID != account.BankId)
+            {
+                CException exception = new CException("Your Account is not in the Selected Bank");
+                throw new FaultException<CException>(exception);
+            }
+
+            loan.Interest = 5;
+            loan.Balance = -loan.Amount * (1f + 5f/100);
+
+
+
+            string sqlQuery = $"INSERT INTO kredit VALUES({loan.BankID}, '{loan.LenderJMBG}', '{loan.Name}', {loan.Amount}, {loan.Interest}, {loan.Balance}, {loan.AccountNumber})";
 
             try
             {
@@ -142,6 +156,24 @@ namespace Server
                 CException exception = new CException("Something went wrong");
                 throw new FaultException<CException>(exception);
             }
+
+            
+            Transaction transaction = new Transaction();
+            transaction.SenderBranchID = GetBankById(loan.BankID).MainBranch;
+            transaction.SenderBankID = loan.BankID;
+            transaction.SenderAccountID = $"{loan.BankID.ToString("D4")}";
+
+            transaction.ReciverBranchID = account.BranchId;
+            transaction.ReciverBankID = account.BankId;
+            transaction.ReciverAccountID = account.AccountNumber;
+
+            transaction.Amount = loan.Amount;
+            transaction.Description = $"Loan of {loan.Name}";
+            transaction.TransactionDate = DateTime.Now;
+            transaction.TransactionType = "Loan Disbursement";
+
+            CreateTransaction(transaction);
+
         }
 
         User GetUserFromAccount(string account)
@@ -163,6 +195,16 @@ namespace Server
             if(accounts.Count == 0) return null;
 
             return new Account(accounts[0]);
+        }
+
+        Bank GetBankById(int bankId)
+        {
+            string sqlQuery = $"select * from banka where id_banke={bankId}";
+            List<Dictionary<string, object>> banks = Database.ExecuteSelectCommand(sqlQuery);
+
+            if (banks.Count == 0) return null;
+
+            return new Bank(banks[0]);
         }
 
         float GetBankFeeProcentage(string transaction_type)
@@ -190,7 +232,7 @@ namespace Server
                     feePercentage = 1.0f; // Example: 1% for payments
                     break;
                 case "Loan Disbursement":
-                    feePercentage = 0.2f; // Example: 0.2% for loan disbursements
+                    feePercentage = 0f; // Example: 0.2% for loan disbursements
                     break;
                 case "Loan Repayment":
                     feePercentage = 0.0f; // Example: 0% for loan repayments
@@ -231,7 +273,7 @@ namespace Server
             }
 
             Account sender_account = GetAccountById(transaction.SenderAccountID);
-            if(sender_account.Balance < transaction.Amount)
+            if(sender_account.Balance < transaction.Amount && transaction.TransactionType != "Loan Disbursement")
             {
                 exception.Reason = "Not enough Money on your Account";
                 throw new FaultException<CException>(exception);
@@ -278,7 +320,7 @@ namespace Server
             float bank_fee = transaction.Amount * transaction.BankFeeProcentage / 100;
             ChangeAccountBalance(transaction.SenderAccountID, -transaction.Amount);
             ChangeAccountBalance(transaction.ReciverAccountID, transaction.Amount - bank_fee);
-            ChangeAccountBalance("0000", bank_fee); // Bank account
+            ChangeAccountBalance($"{transaction.SenderBankID.ToString("D4")}", bank_fee); // Bank account
         }
 
         public void CreateUser(User user)

@@ -17,8 +17,10 @@ namespace Common
         string name;
         long amount;
         int interest;
+        string account_number;
+        float balance;
 
-        public Loan(int id, int bank_id, string lender_jmbg, string name, int amount, int interest)
+        public Loan(int id, int bank_id, string lender_jmbg, string name, int amount, int interest, string account_number, float balance)
         {
             this.id = id;
             this.bank_id = bank_id;
@@ -26,6 +28,8 @@ namespace Common
             this.name = name;
             this.amount = amount;
             this.interest = interest;
+            this.account_number = account_number;
+            this.balance = balance;
         }
 
         public Loan()
@@ -36,6 +40,8 @@ namespace Common
             this.name = "";
             this.amount = 0;
             this.interest = 0;
+            this.account_number = "";
+            this.balance = 0;
         }
 
         [DataMember]
@@ -50,6 +56,10 @@ namespace Common
         public long Amount { get => amount; set => this.amount = value; }
         [DataMember]
         public int Interest { get => interest; set => this.interest = value; }
+        [DataMember]
+        public string AccountNumber { get => account_number; set => this.account_number = value; }
+        [DataMember]
+        public float Balance { get => balance; set => this.balance = value; }
 
 
         public Loan(Dictionary<string, object> v)
@@ -60,6 +70,8 @@ namespace Common
             this.name = (string)v["naziv_kredita"];
             this.amount = (long)v["suma"];
             this.interest = (int)v["kamata"];
+            this.account_number = (string)v["broj_racuna"];
+            this.balance = Convert.ToSingle(v["stanje"]);
         }
     }
 }

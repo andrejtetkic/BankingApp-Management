@@ -38,9 +38,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.submit_btn = new System.Windows.Forms.Button();
             this.cancel_btn = new System.Windows.Forms.Button();
-            this.to_account_combo = new System.Windows.Forms.ComboBox();
             this.from_accoutn_combo = new System.Windows.Forms.ComboBox();
             this.transaction_type = new System.Windows.Forms.ComboBox();
+            this.to_account_combo = new System.Windows.Forms.ComboBox();
             this.amount = new System.Windows.Forms.TextBox();
             this.description = new System.Windows.Forms.TextBox();
             this.error_text_label = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 2);
@@ -176,7 +176,7 @@
             this.submit_btn.ForeColor = System.Drawing.Color.White;
             this.submit_btn.Location = new System.Drawing.Point(181, 383);
             this.submit_btn.Name = "submit_btn";
-            this.submit_btn.Size = new System.Drawing.Size(192, 44);
+            this.submit_btn.Size = new System.Drawing.Size(191, 44);
             this.submit_btn.TabIndex = 7;
             this.submit_btn.Text = "Submit";
             this.submit_btn.UseVisualStyleBackColor = false;
@@ -196,16 +196,6 @@
             this.cancel_btn.UseVisualStyleBackColor = true;
             this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
-            // to_account_combo
-            // 
-            this.to_account_combo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.to_account_combo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.to_account_combo.FormattingEnabled = true;
-            this.to_account_combo.Location = new System.Drawing.Point(181, 89);
-            this.to_account_combo.Name = "to_account_combo";
-            this.to_account_combo.Size = new System.Drawing.Size(192, 21);
-            this.to_account_combo.TabIndex = 9;
-            // 
             // from_accoutn_combo
             // 
             this.from_accoutn_combo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -214,7 +204,7 @@
             this.from_accoutn_combo.FormattingEnabled = true;
             this.from_accoutn_combo.Location = new System.Drawing.Point(181, 49);
             this.from_accoutn_combo.Name = "from_accoutn_combo";
-            this.from_accoutn_combo.Size = new System.Drawing.Size(192, 21);
+            this.from_accoutn_combo.Size = new System.Drawing.Size(191, 21);
             this.from_accoutn_combo.TabIndex = 10;
             // 
             // transaction_type
@@ -226,20 +216,29 @@
             this.transaction_type.Items.AddRange(new object[] {
             "Transfer",
             "Payment",
-            "Loan Disbursement",
             "Loan Repayment",
             "Refund"});
             this.transaction_type.Location = new System.Drawing.Point(181, 189);
             this.transaction_type.Name = "transaction_type";
-            this.transaction_type.Size = new System.Drawing.Size(192, 21);
+            this.transaction_type.Size = new System.Drawing.Size(191, 21);
             this.transaction_type.TabIndex = 11;
+            // 
+            // to_account_combo
+            // 
+            this.to_account_combo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.to_account_combo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.to_account_combo.FormattingEnabled = true;
+            this.to_account_combo.Location = new System.Drawing.Point(181, 89);
+            this.to_account_combo.Name = "to_account_combo";
+            this.to_account_combo.Size = new System.Drawing.Size(191, 21);
+            this.to_account_combo.TabIndex = 9;
             // 
             // amount
             // 
             this.amount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.amount.Location = new System.Drawing.Point(181, 230);
             this.amount.Name = "amount";
-            this.amount.Size = new System.Drawing.Size(192, 20);
+            this.amount.Size = new System.Drawing.Size(191, 20);
             this.amount.TabIndex = 12;
             this.amount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
@@ -248,7 +247,7 @@
             this.description.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.description.Location = new System.Drawing.Point(181, 270);
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(192, 20);
+            this.description.Size = new System.Drawing.Size(191, 20);
             this.description.TabIndex = 13;
             // 
             // error_text_label
@@ -256,7 +255,7 @@
             this.error_text_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.error_text_label.AutoSize = true;
             this.error_text_label.ForeColor = System.Drawing.Color.Red;
-            this.error_text_label.Location = new System.Drawing.Point(218, 300);
+            this.error_text_label.Location = new System.Drawing.Point(217, 300);
             this.error_text_label.Name = "error_text_label";
             this.error_text_label.Size = new System.Drawing.Size(118, 80);
             this.error_text_label.TabIndex = 14;
