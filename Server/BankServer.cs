@@ -223,6 +223,13 @@ namespace Server
                 throw new FaultException<CException>(exception);
             }
 
+            Account sender_account = GetAccountById(transaction.SenderAccountID);
+            if(sender_account.Balance < transaction.Amount)
+            {
+                exception.Reason = "Not enough Money on your Account";
+                throw new FaultException<CException>(exception);
+            }
+
 
             Account reciver_account = GetAccountById(transaction.ReciverAccountID);
             if(reciver_account == null)
@@ -270,7 +277,6 @@ namespace Server
         public void CreateUser(User user)
         {
             string sqlQuery = $"INSERT INTO korisnik VALUES('{user.JMBG}', '{user.Ime}', '{user.Prezime}', '{user.Email}', '{Hash.HashPassword(user.PasswordHash)}', {user.Privilage})";
-            // TODO: check if there is a branch with that name and that bank already nad the address
             CException exception = new CException($"User of JMBG {user.JMBG} already exists! (or unknown error)");
 
             try

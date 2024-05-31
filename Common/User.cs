@@ -34,7 +34,7 @@ namespace Common
             this.prezime = "";
             this.email = "";
             this.password_hash = "";
-            this.privilage = 1;
+            this.privilage = 0;
         }
 
 

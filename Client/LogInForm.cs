@@ -91,7 +91,7 @@ namespace Client
         private void register_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Register registerForm = new Register();
+            Register registerForm = new Register(proxy);
             registerForm.Closed += (s, args) => this.Close();
             registerForm.Show();
 

@@ -40,8 +40,8 @@
             this.f_name_tb = new System.Windows.Forms.TextBox();
             this.register_lb_error = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.register_btn = new System.Windows.Forms.Button();
             this.cancel_btn = new System.Windows.Forms.Button();
+            this.register_btn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -209,6 +209,20 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(320, 44);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
+            // cancel_btn
+            // 
+            this.cancel_btn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancel_btn.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.cancel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_btn.Location = new System.Drawing.Point(3, 3);
+            this.cancel_btn.Name = "cancel_btn";
+            this.cancel_btn.Size = new System.Drawing.Size(90, 38);
+            this.cancel_btn.TabIndex = 7;
+            this.cancel_btn.Text = "Cancel";
+            this.cancel_btn.UseVisualStyleBackColor = true;
+            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
+            // 
             // register_btn
             // 
             this.register_btn.BackColor = System.Drawing.Color.SteelBlue;
@@ -224,20 +238,6 @@
             this.register_btn.Text = "Register";
             this.register_btn.UseVisualStyleBackColor = false;
             this.register_btn.Click += new System.EventHandler(this.register_btn_Click);
-            // 
-            // cancel_btn
-            // 
-            this.cancel_btn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cancel_btn.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.cancel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_btn.Location = new System.Drawing.Point(3, 3);
-            this.cancel_btn.Name = "cancel_btn";
-            this.cancel_btn.Size = new System.Drawing.Size(90, 38);
-            this.cancel_btn.TabIndex = 7;
-            this.cancel_btn.Text = "Cancel";
-            this.cancel_btn.UseVisualStyleBackColor = true;
-            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
             // Register
             // 
