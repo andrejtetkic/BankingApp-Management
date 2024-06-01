@@ -31,7 +31,8 @@ namespace Client
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPageForm));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            //this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl1 = new DotNetBarTabControl();
             this.dashboard_tab = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -99,20 +100,24 @@ namespace Client
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.user_profile_tab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.l_name_tb = new System.Windows.Forms.TextBox();
+            this.f_name_tb = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.save_btn = new System.Windows.Forms.Button();
+            this.reset_btn = new System.Windows.Forms.Button();
+            this.email_tb = new System.Windows.Forms.TextBox();
+            this.change_pass_btn = new System.Windows.Forms.Button();
             this.about_tab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.f_name_tb = new System.Windows.Forms.TextBox();
-            this.l_name_tb = new System.Windows.Forms.TextBox();
-            this.email_tb = new System.Windows.Forms.TextBox();
-            this.change_pass_btn = new System.Windows.Forms.Button();
-            this.reset_btn = new System.Windows.Forms.Button();
-            this.save_btn = new System.Windows.Forms.Button();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.dashboard_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -151,12 +156,13 @@ namespace Client
             ((System.ComponentModel.ISupportInitialize)(this.loans_view)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.user_profile_tab.SuspendLayout();
-            this.about_tab.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
+            this.about_tab.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -592,10 +598,12 @@ namespace Client
             // 
             this.search_transaction_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.search_transaction_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_transaction_tb.Location = new System.Drawing.Point(103, 10);
+            this.search_transaction_tb.Location = new System.Drawing.Point(103, 12);
+            this.search_transaction_tb.Multiline = true;
             this.search_transaction_tb.Name = "search_transaction_tb";
-            this.search_transaction_tb.Size = new System.Drawing.Size(588, 24);
+            this.search_transaction_tb.Size = new System.Drawing.Size(588, 20);
             this.search_transaction_tb.TabIndex = 2;
+            this.search_transaction_tb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.search_transaction_tb_KeyPress);
             // 
             // transactions
             // 
@@ -913,6 +921,133 @@ namespace Client
             this.user_profile_tab.Text = "User Profile";
             this.user_profile_tab.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 3;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel11, 1, 7);
+            this.tableLayoutPanel9.Controls.Add(this.email_tb, 1, 3);
+            this.tableLayoutPanel9.Controls.Add(this.change_pass_btn, 1, 5);
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel12, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.label14, 1, 2);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 9;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.92593F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.81481F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.25926F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(800, 436);
+            this.tableLayoutPanel9.TabIndex = 0;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 2;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.l_name_tb, 1, 0);
+            this.tableLayoutPanel10.Controls.Add(this.f_name_tb, 0, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(228, 56);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 1;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(344, 44);
+            this.tableLayoutPanel10.TabIndex = 0;
+            // 
+            // l_name_tb
+            // 
+            this.l_name_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.l_name_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_name_tb.Location = new System.Drawing.Point(175, 6);
+            this.l_name_tb.Name = "l_name_tb";
+            this.l_name_tb.Size = new System.Drawing.Size(166, 31);
+            this.l_name_tb.TabIndex = 1;
+            // 
+            // f_name_tb
+            // 
+            this.f_name_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.f_name_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.f_name_tb.Location = new System.Drawing.Point(3, 6);
+            this.f_name_tb.Name = "f_name_tb";
+            this.f_name_tb.Size = new System.Drawing.Size(166, 31);
+            this.f_name_tb.TabIndex = 0;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.save_btn, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.reset_btn, 0, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(228, 378);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(344, 34);
+            this.tableLayoutPanel11.TabIndex = 1;
+            // 
+            // save_btn
+            // 
+            this.save_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.save_btn.BackColor = System.Drawing.Color.SteelBlue;
+            this.save_btn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.save_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.save_btn.ForeColor = System.Drawing.Color.White;
+            this.save_btn.Location = new System.Drawing.Point(175, 3);
+            this.save_btn.Name = "save_btn";
+            this.save_btn.Size = new System.Drawing.Size(166, 28);
+            this.save_btn.TabIndex = 5;
+            this.save_btn.Text = "Save";
+            this.save_btn.UseVisualStyleBackColor = false;
+            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
+            // 
+            // reset_btn
+            // 
+            this.reset_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.reset_btn.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.reset_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reset_btn.Location = new System.Drawing.Point(3, 3);
+            this.reset_btn.Name = "reset_btn";
+            this.reset_btn.Size = new System.Drawing.Size(166, 28);
+            this.reset_btn.TabIndex = 4;
+            this.reset_btn.Text = "Reset";
+            this.reset_btn.UseVisualStyleBackColor = true;
+            this.reset_btn.Click += new System.EventHandler(this.reset_btn_Click);
+            // 
+            // email_tb
+            // 
+            this.email_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.email_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_tb.Location = new System.Drawing.Point(228, 132);
+            this.email_tb.Name = "email_tb";
+            this.email_tb.Size = new System.Drawing.Size(344, 31);
+            this.email_tb.TabIndex = 2;
+            // 
+            // change_pass_btn
+            // 
+            this.change_pass_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.change_pass_btn.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.change_pass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.change_pass_btn.Location = new System.Drawing.Point(228, 212);
+            this.change_pass_btn.Name = "change_pass_btn";
+            this.change_pass_btn.Size = new System.Drawing.Size(344, 32);
+            this.change_pass_btn.TabIndex = 3;
+            this.change_pass_btn.Text = "Change Password";
+            this.change_pass_btn.UseVisualStyleBackColor = true;
+            this.change_pass_btn.Click += new System.EventHandler(this.change_pass_btn_Click);
+            // 
             // about_tab
             // 
             this.about_tab.Controls.Add(this.tableLayoutPanel8);
@@ -981,129 +1116,50 @@ namespace Client
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // tableLayoutPanel9
+            // tableLayoutPanel12
             // 
-            this.tableLayoutPanel9.ColumnCount = 3;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 1, 1);
-            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel11, 1, 6);
-            this.tableLayoutPanel9.Controls.Add(this.email_tb, 1, 2);
-            this.tableLayoutPanel9.Controls.Add(this.change_pass_btn, 1, 4);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 8;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.92593F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.81481F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.25926F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(800, 436);
-            this.tableLayoutPanel9.TabIndex = 0;
+            this.tableLayoutPanel12.ColumnCount = 2;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Controls.Add(this.label13, 1, 0);
+            this.tableLayoutPanel12.Controls.Add(this.label12, 0, 0);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(228, 3);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(344, 47);
+            this.tableLayoutPanel12.TabIndex = 4;
             // 
-            // tableLayoutPanel10
+            // label12
             // 
-            this.tableLayoutPanel10.ColumnCount = 2;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Controls.Add(this.l_name_tb, 1, 0);
-            this.tableLayoutPanel10.Controls.Add(this.f_name_tb, 0, 0);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(228, 61);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 1;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(344, 44);
-            this.tableLayoutPanel10.TabIndex = 0;
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 34);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(57, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "First Name";
             // 
-            // tableLayoutPanel11
+            // label13
             // 
-            this.tableLayoutPanel11.ColumnCount = 2;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Controls.Add(this.save_btn, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.reset_btn, 0, 0);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(228, 377);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 1;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(344, 34);
-            this.tableLayoutPanel11.TabIndex = 1;
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(175, 34);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(58, 13);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Last Name";
             // 
-            // f_name_tb
+            // label14
             // 
-            this.f_name_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.f_name_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.f_name_tb.Location = new System.Drawing.Point(3, 6);
-            this.f_name_tb.Name = "f_name_tb";
-            this.f_name_tb.Size = new System.Drawing.Size(166, 31);
-            this.f_name_tb.TabIndex = 0;
-            // 
-            // l_name_tb
-            // 
-            this.l_name_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.l_name_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_name_tb.Location = new System.Drawing.Point(175, 6);
-            this.l_name_tb.Name = "l_name_tb";
-            this.l_name_tb.Size = new System.Drawing.Size(166, 31);
-            this.l_name_tb.TabIndex = 1;
-            // 
-            // email_tb
-            // 
-            this.email_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.email_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_tb.Location = new System.Drawing.Point(228, 117);
-            this.email_tb.Name = "email_tb";
-            this.email_tb.Size = new System.Drawing.Size(344, 31);
-            this.email_tb.TabIndex = 2;
-            // 
-            // change_pass_btn
-            // 
-            this.change_pass_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.change_pass_btn.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.change_pass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.change_pass_btn.Location = new System.Drawing.Point(228, 200);
-            this.change_pass_btn.Name = "change_pass_btn";
-            this.change_pass_btn.Size = new System.Drawing.Size(344, 32);
-            this.change_pass_btn.TabIndex = 3;
-            this.change_pass_btn.Text = "Change Password";
-            this.change_pass_btn.UseVisualStyleBackColor = true;
-            this.change_pass_btn.Click += new System.EventHandler(this.change_pass_btn_Click);
-            // 
-            // reset_btn
-            // 
-            this.reset_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.reset_btn.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.reset_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reset_btn.Location = new System.Drawing.Point(3, 3);
-            this.reset_btn.Name = "reset_btn";
-            this.reset_btn.Size = new System.Drawing.Size(166, 28);
-            this.reset_btn.TabIndex = 4;
-            this.reset_btn.Text = "Reset";
-            this.reset_btn.UseVisualStyleBackColor = true;
-            this.reset_btn.Click += new System.EventHandler(this.reset_btn_Click);
-            // 
-            // save_btn
-            // 
-            this.save_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.save_btn.BackColor = System.Drawing.Color.SteelBlue;
-            this.save_btn.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.save_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.save_btn.ForeColor = System.Drawing.Color.White;
-            this.save_btn.Location = new System.Drawing.Point(175, 3);
-            this.save_btn.Name = "save_btn";
-            this.save_btn.Size = new System.Drawing.Size(166, 28);
-            this.save_btn.TabIndex = 5;
-            this.save_btn.Text = "Save";
-            this.save_btn.UseVisualStyleBackColor = false;
-            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(228, 110);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 13);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "E-mail";
             // 
             // MainPageForm
             // 
@@ -1158,23 +1214,25 @@ namespace Client
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.user_profile_tab.ResumeLayout(false);
-            this.about_tab.ResumeLayout(false);
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
+            this.about_tab.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        //private Client.DotNetBarTabControl tabControl1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private Client.DotNetBarTabControl tabControl1;
+        //private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage accounts_tab;
         private TabPage loans_tab;
         private TabPage dashboard_tab;
@@ -1256,5 +1314,9 @@ namespace Client
         private Button change_pass_btn;
         private Button save_btn;
         private Button reset_btn;
+        private TableLayoutPanel tableLayoutPanel12;
+        private Label label13;
+        private Label label12;
+        private Label label14;
     }
 }

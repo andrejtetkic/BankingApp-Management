@@ -250,6 +250,16 @@ namespace Client
                     row.Visible = false;
                 }
 
+                // Search
+                if(search_transaction_tb.Text != "Search Transactions")
+                {
+                    if (!(name.ToLower().Contains(search_transaction_tb.Text.ToLower()) || 
+                        tran.Description.ToLower().Contains(search_transaction_tb.Text.ToLower())))
+                    {
+                        row.Visible = false;
+                    }
+                }
+
                 transactions.Rows.Add(row);
 
             }
@@ -321,6 +331,15 @@ namespace Client
         {
             ChangePassword changePassword = new ChangePassword(proxy);
             changePassword.ShowDialog();
+        }
+
+        private void search_transaction_tb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                SetTransactions();
+                e.Handled = true;
+            }
         }
     }
 }
