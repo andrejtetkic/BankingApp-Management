@@ -55,6 +55,8 @@ namespace Client
                 { accounts_tab, AccountsLoad },
                 { loans_tab, LoansLoad },
                 { banks_tab, BanksLoad },
+                { branches_tab, BranchesLoad },
+                { user_profile_tab, UserSettingsLoad }
             };
         }
 
@@ -358,6 +360,60 @@ namespace Client
             bank.ShowDialog();
 
             BanksLoad();
+        }
+
+        private void BranchesLoad()
+        {
+
+            bankID2Name = proxy.GetAllBankNamesWithIDs();
+
+            branches_data_view.Rows.Clear();
+
+            branches = proxy.GetAllBranches();
+
+            foreach (Branch branch in branches)
+            {
+                branches_data_view.Rows.Add(branch.ID, bankID2Name[branch.BankID], branch.Name, branch.Address);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NewBranch branch = new NewBranch(proxy);
+            branch.ShowDialog();
+
+            BranchesLoad();
+        }
+
+        private void UserSettingsLoad()
+        {
+            User active_user = proxy.GetUser(SessionManager.GetCurrentUser().UserId);
+            f_name_tb.Text = active_user.Ime;
+            l_name_tb.Text = active_user.Prezime;
+            email_tb.Text = active_user.Email;
+
+        }
+
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            User active_user = new User();
+
+            active_user.Ime = f_name_tb.Text;
+            active_user.Prezime = l_name_tb.Text;
+            active_user.Email = email_tb.Text;
+
+            proxy.UpdateUser(SessionManager.GetCurrentUser().UserId, active_user);
+        }
+
+        private void reset_btn_Click(object sender, EventArgs e)
+        {
+            UserSettingsLoad();
+        }
+
+        private void change_pass_btn_Click(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword(proxy);
+            changePassword.ShowDialog();
         }
     }
 }

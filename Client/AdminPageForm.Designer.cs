@@ -28,12 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl1 = new Client.DotNetBarTabControl();
             this.dashboard_tab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.user_amount_lb = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.account_amount_lb = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.loan_amount_lb = new System.Windows.Forms.Label();
             this.accounts_tab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.accounts_data_view = new System.Windows.Forms.DataGridView();
+            this.acc_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bank_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branch_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.balance_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.account_bank_combo = new System.Windows.Forms.ComboBox();
+            this.account_branch_combo = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.account_show_combo = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.transactions_tab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -61,6 +80,35 @@
             this.loans_tab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.loans_view = new System.Windows.Forms.DataGridView();
+            this.loan_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loan_owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loan_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loan_bank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.load_amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loan_account = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.interest_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loan_balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.banks_tab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.banks_data_view = new System.Windows.Forms.DataGridView();
+            this.bank_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bank_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bank_city = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.branches_tab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.branches_data_view = new System.Windows.Forms.DataGridView();
+            this.branch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branch_bank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branch_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branch_adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
             this.user_profile_tab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -75,60 +123,14 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.user_amount_lb = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.account_amount_lb = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.loan_amount_lb = new System.Windows.Forms.Label();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.banks_tab = new System.Windows.Forms.TabPage();
-            this.branches_tab = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.account_branch_combo = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.account_bank_combo = new System.Windows.Forms.ComboBox();
-            this.acc_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bank_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branch_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.balance_acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loan_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loan_owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loan_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loan_bank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.load_amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loan_account = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.interest_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loan_balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.account_show_combo = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.banks_data_view = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.branches_data_view = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.bank_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bank_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bank_city = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branch_bank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branch_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branch_adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.dashboard_tab.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
             this.accounts_tab.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accounts_data_view)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
             this.transactions_tab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -137,22 +139,20 @@
             this.loans_tab.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loans_view)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.banks_tab.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.banks_data_view)).BeginInit();
+            this.tableLayoutPanel15.SuspendLayout();
+            this.branches_tab.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.branches_data_view)).BeginInit();
+            this.tableLayoutPanel17.SuspendLayout();
             this.user_profile_tab.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
-            this.tableLayoutPanel13.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.banks_tab.SuspendLayout();
-            this.branches_tab.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            this.tableLayoutPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.banks_data_view)).BeginInit();
-            this.tableLayoutPanel15.SuspendLayout();
-            this.tableLayoutPanel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.branches_data_view)).BeginInit();
-            this.tableLayoutPanel17.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -186,6 +186,103 @@
             this.dashboard_tab.TabIndex = 0;
             this.dashboard_tab.Text = "Dashboard";
             this.dashboard_tab.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 1;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.user_amount_lb, 0, 2);
+            this.tableLayoutPanel13.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel13.Controls.Add(this.account_amount_lb, 0, 4);
+            this.tableLayoutPanel13.Controls.Add(this.label15, 0, 5);
+            this.tableLayoutPanel13.Controls.Add(this.loan_amount_lb, 0, 6);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 8;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(802, 436);
+            this.tableLayoutPanel13.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(796, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Total of";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // user_amount_lb
+            // 
+            this.user_amount_lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.user_amount_lb.AutoSize = true;
+            this.user_amount_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_amount_lb.Location = new System.Drawing.Point(3, 108);
+            this.user_amount_lb.Name = "user_amount_lb";
+            this.user_amount_lb.Size = new System.Drawing.Size(796, 39);
+            this.user_amount_lb.TabIndex = 1;
+            this.user_amount_lb.Text = "18 User";
+            this.user_amount_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 165);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(796, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "with";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // account_amount_lb
+            // 
+            this.account_amount_lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.account_amount_lb.AutoSize = true;
+            this.account_amount_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.account_amount_lb.Location = new System.Drawing.Point(3, 198);
+            this.account_amount_lb.Name = "account_amount_lb";
+            this.account_amount_lb.Size = new System.Drawing.Size(796, 39);
+            this.account_amount_lb.TabIndex = 3;
+            this.account_amount_lb.Text = "25 Accounts";
+            this.account_amount_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(3, 255);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(796, 16);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "and";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // loan_amount_lb
+            // 
+            this.loan_amount_lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.loan_amount_lb.AutoSize = true;
+            this.loan_amount_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loan_amount_lb.Location = new System.Drawing.Point(3, 288);
+            this.loan_amount_lb.Name = "loan_amount_lb";
+            this.loan_amount_lb.Size = new System.Drawing.Size(796, 39);
+            this.loan_amount_lb.TabIndex = 5;
+            this.loan_amount_lb.Text = "$1285052 Loaned";
+            this.loan_amount_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // accounts_tab
             // 
@@ -234,6 +331,36 @@
             this.accounts_data_view.TabIndex = 0;
             this.accounts_data_view.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.accounts_data_view_CellDoubleClick_1);
             // 
+            // acc_number
+            // 
+            this.acc_number.HeaderText = "Account Number";
+            this.acc_number.Name = "acc_number";
+            this.acc_number.ReadOnly = true;
+            // 
+            // owner
+            // 
+            this.owner.HeaderText = "Owner";
+            this.owner.Name = "owner";
+            this.owner.ReadOnly = true;
+            // 
+            // bank_acc
+            // 
+            this.bank_acc.HeaderText = "Bank";
+            this.bank_acc.Name = "bank_acc";
+            this.bank_acc.ReadOnly = true;
+            // 
+            // branch_acc
+            // 
+            this.branch_acc.HeaderText = "Branch";
+            this.branch_acc.Name = "branch_acc";
+            this.branch_acc.ReadOnly = true;
+            // 
+            // balance_acc
+            // 
+            this.balance_acc.HeaderText = "Balance";
+            this.balance_acc.Name = "balance_acc";
+            this.balance_acc.ReadOnly = true;
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -248,6 +375,110 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(796, 44);
             this.tableLayoutPanel5.TabIndex = 1;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 3;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Controls.Add(this.label17, 2, 0);
+            this.tableLayoutPanel8.Controls.Add(this.account_bank_combo, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.account_branch_combo, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label11, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.account_show_combo, 2, 1);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.21053F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.78947F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(576, 38);
+            this.tableLayoutPanel8.TabIndex = 4;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(403, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(34, 13);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Show";
+            // 
+            // account_bank_combo
+            // 
+            this.account_bank_combo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.account_bank_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.account_bank_combo.FormattingEnabled = true;
+            this.account_bank_combo.Items.AddRange(new object[] {
+            "Any",
+            "Transfer From",
+            "Transfer To",
+            "Payment",
+            "Deposit",
+            "Withdrawal",
+            "Loan Disbursement",
+            "Loan Repayment",
+            "Refund"});
+            this.account_bank_combo.Location = new System.Drawing.Point(3, 16);
+            this.account_bank_combo.Name = "account_bank_combo";
+            this.account_bank_combo.Size = new System.Drawing.Size(194, 21);
+            this.account_bank_combo.TabIndex = 5;
+            this.account_bank_combo.SelectedIndexChanged += new System.EventHandler(this.account_bank_combo_SelectedIndexChanged);
+            // 
+            // account_branch_combo
+            // 
+            this.account_branch_combo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.account_branch_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.account_branch_combo.FormattingEnabled = true;
+            this.account_branch_combo.Items.AddRange(new object[] {
+            "Any",
+            "Transfer From",
+            "Transfer To",
+            "Payment",
+            "Deposit",
+            "Withdrawal",
+            "Loan Disbursement",
+            "Loan Repayment",
+            "Refund"});
+            this.account_branch_combo.Location = new System.Drawing.Point(203, 16);
+            this.account_branch_combo.Name = "account_branch_combo";
+            this.account_branch_combo.Size = new System.Drawing.Size(194, 21);
+            this.account_branch_combo.TabIndex = 0;
+            this.account_branch_combo.SelectedIndexChanged += new System.EventHandler(this.account_branch_combo_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Bank";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(203, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Branch";
+            // 
+            // account_show_combo
+            // 
+            this.account_show_combo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.account_show_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.account_show_combo.FormattingEnabled = true;
+            this.account_show_combo.Items.AddRange(new object[] {
+            "All",
+            "One per Owner"});
+            this.account_show_combo.Location = new System.Drawing.Point(403, 16);
+            this.account_show_combo.Name = "account_show_combo";
+            this.account_show_combo.Size = new System.Drawing.Size(170, 21);
+            this.account_show_combo.TabIndex = 6;
+            this.account_show_combo.SelectedIndexChanged += new System.EventHandler(this.account_show_combo_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -553,6 +784,290 @@
             this.loans_view.Size = new System.Drawing.Size(802, 386);
             this.loans_view.TabIndex = 0;
             // 
+            // loan_number
+            // 
+            this.loan_number.HeaderText = "Loan Number";
+            this.loan_number.Name = "loan_number";
+            this.loan_number.ReadOnly = true;
+            this.loan_number.Width = 95;
+            // 
+            // loan_owner
+            // 
+            this.loan_owner.HeaderText = "Owner";
+            this.loan_owner.Name = "loan_owner";
+            this.loan_owner.ReadOnly = true;
+            this.loan_owner.Width = 80;
+            // 
+            // loan_name
+            // 
+            this.loan_name.HeaderText = "Name";
+            this.loan_name.Name = "loan_name";
+            this.loan_name.ReadOnly = true;
+            this.loan_name.Width = 80;
+            // 
+            // loan_bank
+            // 
+            this.loan_bank.HeaderText = "Bank";
+            this.loan_bank.Name = "loan_bank";
+            this.loan_bank.ReadOnly = true;
+            // 
+            // load_amount
+            // 
+            this.load_amount.HeaderText = "Amount";
+            this.load_amount.Name = "load_amount";
+            this.load_amount.ReadOnly = true;
+            // 
+            // loan_account
+            // 
+            this.loan_account.HeaderText = "To Account";
+            this.loan_account.Name = "loan_account";
+            this.loan_account.ReadOnly = true;
+            // 
+            // interest_rate
+            // 
+            this.interest_rate.HeaderText = "Interest Rate";
+            this.interest_rate.Name = "interest_rate";
+            this.interest_rate.ReadOnly = true;
+            // 
+            // loan_balance
+            // 
+            this.loan_balance.HeaderText = "Left to Pay";
+            this.loan_balance.Name = "loan_balance";
+            this.loan_balance.ReadOnly = true;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(802, 44);
+            this.tableLayoutPanel7.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(138, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(125, 44);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "All Loans";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // banks_tab
+            // 
+            this.banks_tab.Controls.Add(this.tableLayoutPanel14);
+            this.banks_tab.Location = new System.Drawing.Point(140, 4);
+            this.banks_tab.Name = "banks_tab";
+            this.banks_tab.Size = new System.Drawing.Size(808, 442);
+            this.banks_tab.TabIndex = 7;
+            this.banks_tab.Text = "Banks";
+            this.banks_tab.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 1;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.Controls.Add(this.banks_data_view, 0, 1);
+            this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel15, 0, 0);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 2;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(808, 442);
+            this.tableLayoutPanel14.TabIndex = 3;
+            // 
+            // banks_data_view
+            // 
+            this.banks_data_view.AllowUserToAddRows = false;
+            this.banks_data_view.AllowUserToDeleteRows = false;
+            this.banks_data_view.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.banks_data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.banks_data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.bank_id,
+            this.bank_name,
+            this.bank_city});
+            this.banks_data_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.banks_data_view.Location = new System.Drawing.Point(3, 53);
+            this.banks_data_view.Name = "banks_data_view";
+            this.banks_data_view.ReadOnly = true;
+            this.banks_data_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.banks_data_view.Size = new System.Drawing.Size(802, 386);
+            this.banks_data_view.TabIndex = 0;
+            // 
+            // bank_id
+            // 
+            this.bank_id.HeaderText = "Bank Number";
+            this.bank_id.Name = "bank_id";
+            this.bank_id.ReadOnly = true;
+            // 
+            // bank_name
+            // 
+            this.bank_name.HeaderText = "Name";
+            this.bank_name.Name = "bank_name";
+            this.bank_name.ReadOnly = true;
+            // 
+            // bank_city
+            // 
+            this.bank_city.HeaderText = "City";
+            this.bank_city.Name = "bank_city";
+            this.bank_city.ReadOnly = true;
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.ColumnCount = 2;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Controls.Add(this.label18, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.button1, 1, 0);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 1;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(802, 44);
+            this.tableLayoutPanel15.TabIndex = 1;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(137, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(127, 44);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "All Banks";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button1.Location = new System.Drawing.Point(695, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 34);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "New";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // branches_tab
+            // 
+            this.branches_tab.Controls.Add(this.tableLayoutPanel16);
+            this.branches_tab.Location = new System.Drawing.Point(140, 4);
+            this.branches_tab.Name = "branches_tab";
+            this.branches_tab.Size = new System.Drawing.Size(808, 442);
+            this.branches_tab.TabIndex = 8;
+            this.branches_tab.Text = "Branches";
+            this.branches_tab.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel16
+            // 
+            this.tableLayoutPanel16.ColumnCount = 1;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel16.Controls.Add(this.branches_data_view, 0, 1);
+            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 0, 0);
+            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
+            this.tableLayoutPanel16.RowCount = 2;
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(808, 442);
+            this.tableLayoutPanel16.TabIndex = 3;
+            // 
+            // branches_data_view
+            // 
+            this.branches_data_view.AllowUserToAddRows = false;
+            this.branches_data_view.AllowUserToDeleteRows = false;
+            this.branches_data_view.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.branches_data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.branches_data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.branch_id,
+            this.branch_bank,
+            this.branch_name,
+            this.branch_adress});
+            this.branches_data_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.branches_data_view.Location = new System.Drawing.Point(3, 53);
+            this.branches_data_view.Name = "branches_data_view";
+            this.branches_data_view.ReadOnly = true;
+            this.branches_data_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.branches_data_view.Size = new System.Drawing.Size(802, 386);
+            this.branches_data_view.TabIndex = 0;
+            // 
+            // branch_id
+            // 
+            this.branch_id.HeaderText = "Branch Number";
+            this.branch_id.Name = "branch_id";
+            this.branch_id.ReadOnly = true;
+            // 
+            // branch_bank
+            // 
+            this.branch_bank.HeaderText = "Bank";
+            this.branch_bank.Name = "branch_bank";
+            this.branch_bank.ReadOnly = true;
+            // 
+            // branch_name
+            // 
+            this.branch_name.HeaderText = "Name";
+            this.branch_name.Name = "branch_name";
+            this.branch_name.ReadOnly = true;
+            // 
+            // branch_adress
+            // 
+            this.branch_adress.HeaderText = "Adress";
+            this.branch_adress.Name = "branch_adress";
+            this.branch_adress.ReadOnly = true;
+            // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 2;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.Controls.Add(this.button2, 0, 0);
+            this.tableLayoutPanel17.Controls.Add(this.label19, 0, 0);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 1;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(802, 44);
+            this.tableLayoutPanel17.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button2.Location = new System.Drawing.Point(695, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(104, 34);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "New";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(117, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(166, 44);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "All Branches";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // user_profile_tab
             // 
             this.user_profile_tab.Controls.Add(this.tableLayoutPanel9);
@@ -654,6 +1169,7 @@
             this.save_btn.TabIndex = 5;
             this.save_btn.Text = "Save";
             this.save_btn.UseVisualStyleBackColor = false;
+            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
             // reset_btn
             // 
@@ -666,6 +1182,7 @@
             this.reset_btn.TabIndex = 4;
             this.reset_btn.Text = "Reset";
             this.reset_btn.UseVisualStyleBackColor = true;
+            this.reset_btn.Click += new System.EventHandler(this.reset_btn_Click);
             // 
             // email_tb
             // 
@@ -687,6 +1204,7 @@
             this.change_pass_btn.TabIndex = 3;
             this.change_pass_btn.Text = "Change Password";
             this.change_pass_btn.UseVisualStyleBackColor = true;
+            this.change_pass_btn.Click += new System.EventHandler(this.change_pass_btn_Click);
             // 
             // tableLayoutPanel12
             // 
@@ -733,520 +1251,6 @@
             this.label14.TabIndex = 5;
             this.label14.Text = "E-mail";
             // 
-            // tableLayoutPanel13
-            // 
-            this.tableLayoutPanel13.ColumnCount = 1;
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel13.Controls.Add(this.user_amount_lb, 0, 2);
-            this.tableLayoutPanel13.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel13.Controls.Add(this.account_amount_lb, 0, 4);
-            this.tableLayoutPanel13.Controls.Add(this.label15, 0, 5);
-            this.tableLayoutPanel13.Controls.Add(this.loan_amount_lb, 0, 6);
-            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
-            this.tableLayoutPanel13.RowCount = 8;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(802, 436);
-            this.tableLayoutPanel13.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(796, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Total of";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // user_amount_lb
-            // 
-            this.user_amount_lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.user_amount_lb.AutoSize = true;
-            this.user_amount_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.user_amount_lb.Location = new System.Drawing.Point(3, 108);
-            this.user_amount_lb.Name = "user_amount_lb";
-            this.user_amount_lb.Size = new System.Drawing.Size(796, 39);
-            this.user_amount_lb.TabIndex = 1;
-            this.user_amount_lb.Text = "18 User";
-            this.user_amount_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 165);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(796, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "with";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // account_amount_lb
-            // 
-            this.account_amount_lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.account_amount_lb.AutoSize = true;
-            this.account_amount_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.account_amount_lb.Location = new System.Drawing.Point(3, 198);
-            this.account_amount_lb.Name = "account_amount_lb";
-            this.account_amount_lb.Size = new System.Drawing.Size(796, 39);
-            this.account_amount_lb.TabIndex = 3;
-            this.account_amount_lb.Text = "25 Accounts";
-            this.account_amount_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 255);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(796, 16);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "and";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // loan_amount_lb
-            // 
-            this.loan_amount_lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.loan_amount_lb.AutoSize = true;
-            this.loan_amount_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loan_amount_lb.Location = new System.Drawing.Point(3, 288);
-            this.loan_amount_lb.Name = "loan_amount_lb";
-            this.loan_amount_lb.Size = new System.Drawing.Size(796, 39);
-            this.loan_amount_lb.TabIndex = 5;
-            this.loan_amount_lb.Text = "$1285052 Loaned";
-            this.loan_amount_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(802, 44);
-            this.tableLayoutPanel7.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(138, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 44);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "All Loans";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // banks_tab
-            // 
-            this.banks_tab.Controls.Add(this.tableLayoutPanel14);
-            this.banks_tab.Location = new System.Drawing.Point(140, 4);
-            this.banks_tab.Name = "banks_tab";
-            this.banks_tab.Size = new System.Drawing.Size(808, 442);
-            this.banks_tab.TabIndex = 7;
-            this.banks_tab.Text = "Banks";
-            this.banks_tab.UseVisualStyleBackColor = true;
-            // 
-            // branches_tab
-            // 
-            this.branches_tab.Controls.Add(this.tableLayoutPanel16);
-            this.branches_tab.Location = new System.Drawing.Point(140, 4);
-            this.branches_tab.Name = "branches_tab";
-            this.branches_tab.Size = new System.Drawing.Size(808, 442);
-            this.branches_tab.TabIndex = 8;
-            this.branches_tab.Text = "Branches";
-            this.branches_tab.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 3;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.label17, 2, 0);
-            this.tableLayoutPanel8.Controls.Add(this.account_bank_combo, 0, 1);
-            this.tableLayoutPanel8.Controls.Add(this.account_branch_combo, 0, 1);
-            this.tableLayoutPanel8.Controls.Add(this.label10, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.label11, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.account_show_combo, 2, 1);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 2;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.21053F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.78947F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(576, 38);
-            this.tableLayoutPanel8.TabIndex = 4;
-            // 
-            // account_branch_combo
-            // 
-            this.account_branch_combo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.account_branch_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.account_branch_combo.FormattingEnabled = true;
-            this.account_branch_combo.Items.AddRange(new object[] {
-            "Any",
-            "Transfer From",
-            "Transfer To",
-            "Payment",
-            "Deposit",
-            "Withdrawal",
-            "Loan Disbursement",
-            "Loan Repayment",
-            "Refund"});
-            this.account_branch_combo.Location = new System.Drawing.Point(203, 16);
-            this.account_branch_combo.Name = "account_branch_combo";
-            this.account_branch_combo.Size = new System.Drawing.Size(194, 21);
-            this.account_branch_combo.TabIndex = 0;
-            this.account_branch_combo.SelectedIndexChanged += new System.EventHandler(this.account_branch_combo_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(32, 13);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Bank";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(203, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Branch";
-            // 
-            // account_bank_combo
-            // 
-            this.account_bank_combo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.account_bank_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.account_bank_combo.FormattingEnabled = true;
-            this.account_bank_combo.Items.AddRange(new object[] {
-            "Any",
-            "Transfer From",
-            "Transfer To",
-            "Payment",
-            "Deposit",
-            "Withdrawal",
-            "Loan Disbursement",
-            "Loan Repayment",
-            "Refund"});
-            this.account_bank_combo.Location = new System.Drawing.Point(3, 16);
-            this.account_bank_combo.Name = "account_bank_combo";
-            this.account_bank_combo.Size = new System.Drawing.Size(194, 21);
-            this.account_bank_combo.TabIndex = 5;
-            this.account_bank_combo.SelectedIndexChanged += new System.EventHandler(this.account_bank_combo_SelectedIndexChanged);
-            // 
-            // acc_number
-            // 
-            this.acc_number.HeaderText = "Account Number";
-            this.acc_number.Name = "acc_number";
-            this.acc_number.ReadOnly = true;
-            // 
-            // owner
-            // 
-            this.owner.HeaderText = "Owner";
-            this.owner.Name = "owner";
-            this.owner.ReadOnly = true;
-            // 
-            // bank_acc
-            // 
-            this.bank_acc.HeaderText = "Bank";
-            this.bank_acc.Name = "bank_acc";
-            this.bank_acc.ReadOnly = true;
-            // 
-            // branch_acc
-            // 
-            this.branch_acc.HeaderText = "Branch";
-            this.branch_acc.Name = "branch_acc";
-            this.branch_acc.ReadOnly = true;
-            // 
-            // balance_acc
-            // 
-            this.balance_acc.HeaderText = "Balance";
-            this.balance_acc.Name = "balance_acc";
-            this.balance_acc.ReadOnly = true;
-            // 
-            // loan_number
-            // 
-            this.loan_number.HeaderText = "Loan Number";
-            this.loan_number.Name = "loan_number";
-            this.loan_number.ReadOnly = true;
-            this.loan_number.Width = 95;
-            // 
-            // loan_owner
-            // 
-            this.loan_owner.HeaderText = "Owner";
-            this.loan_owner.Name = "loan_owner";
-            this.loan_owner.ReadOnly = true;
-            this.loan_owner.Width = 80;
-            // 
-            // loan_name
-            // 
-            this.loan_name.HeaderText = "Name";
-            this.loan_name.Name = "loan_name";
-            this.loan_name.ReadOnly = true;
-            this.loan_name.Width = 80;
-            // 
-            // loan_bank
-            // 
-            this.loan_bank.HeaderText = "Bank";
-            this.loan_bank.Name = "loan_bank";
-            this.loan_bank.ReadOnly = true;
-            // 
-            // load_amount
-            // 
-            this.load_amount.HeaderText = "Amount";
-            this.load_amount.Name = "load_amount";
-            this.load_amount.ReadOnly = true;
-            // 
-            // loan_account
-            // 
-            this.loan_account.HeaderText = "To Account";
-            this.loan_account.Name = "loan_account";
-            this.loan_account.ReadOnly = true;
-            // 
-            // interest_rate
-            // 
-            this.interest_rate.HeaderText = "Interest Rate";
-            this.interest_rate.Name = "interest_rate";
-            this.interest_rate.ReadOnly = true;
-            // 
-            // loan_balance
-            // 
-            this.loan_balance.HeaderText = "Left to Pay";
-            this.loan_balance.Name = "loan_balance";
-            this.loan_balance.ReadOnly = true;
-            // 
-            // account_show_combo
-            // 
-            this.account_show_combo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.account_show_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.account_show_combo.FormattingEnabled = true;
-            this.account_show_combo.Items.AddRange(new object[] {
-            "All",
-            "One per Owner"});
-            this.account_show_combo.Location = new System.Drawing.Point(403, 16);
-            this.account_show_combo.Name = "account_show_combo";
-            this.account_show_combo.Size = new System.Drawing.Size(170, 21);
-            this.account_show_combo.TabIndex = 6;
-            this.account_show_combo.SelectedIndexChanged += new System.EventHandler(this.account_show_combo_SelectedIndexChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(403, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(34, 13);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "Show";
-            // 
-            // tableLayoutPanel14
-            // 
-            this.tableLayoutPanel14.ColumnCount = 1;
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Controls.Add(this.banks_data_view, 0, 1);
-            this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel15, 0, 0);
-            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
-            this.tableLayoutPanel14.RowCount = 2;
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(808, 442);
-            this.tableLayoutPanel14.TabIndex = 3;
-            // 
-            // banks_data_view
-            // 
-            this.banks_data_view.AllowUserToAddRows = false;
-            this.banks_data_view.AllowUserToDeleteRows = false;
-            this.banks_data_view.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.banks_data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.banks_data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bank_id,
-            this.bank_name,
-            this.bank_city});
-            this.banks_data_view.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.banks_data_view.Location = new System.Drawing.Point(3, 53);
-            this.banks_data_view.Name = "banks_data_view";
-            this.banks_data_view.ReadOnly = true;
-            this.banks_data_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.banks_data_view.Size = new System.Drawing.Size(802, 386);
-            this.banks_data_view.TabIndex = 0;
-            // 
-            // tableLayoutPanel15
-            // 
-            this.tableLayoutPanel15.ColumnCount = 2;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Controls.Add(this.label18, 0, 0);
-            this.tableLayoutPanel15.Controls.Add(this.button1, 1, 0);
-            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 1;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(802, 44);
-            this.tableLayoutPanel15.TabIndex = 1;
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(137, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(127, 44);
-            this.label18.TabIndex = 3;
-            this.label18.Text = "All Banks";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel16
-            // 
-            this.tableLayoutPanel16.ColumnCount = 1;
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Controls.Add(this.branches_data_view, 0, 1);
-            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 0, 0);
-            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
-            this.tableLayoutPanel16.RowCount = 2;
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(808, 442);
-            this.tableLayoutPanel16.TabIndex = 3;
-            // 
-            // branches_data_view
-            // 
-            this.branches_data_view.AllowUserToAddRows = false;
-            this.branches_data_view.AllowUserToDeleteRows = false;
-            this.branches_data_view.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.branches_data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.branches_data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.branch_id,
-            this.branch_bank,
-            this.branch_name,
-            this.branch_adress});
-            this.branches_data_view.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.branches_data_view.Location = new System.Drawing.Point(3, 53);
-            this.branches_data_view.Name = "branches_data_view";
-            this.branches_data_view.ReadOnly = true;
-            this.branches_data_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.branches_data_view.Size = new System.Drawing.Size(802, 386);
-            this.branches_data_view.TabIndex = 0;
-            // 
-            // tableLayoutPanel17
-            // 
-            this.tableLayoutPanel17.ColumnCount = 2;
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Controls.Add(this.button2, 0, 0);
-            this.tableLayoutPanel17.Controls.Add(this.label19, 0, 0);
-            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
-            this.tableLayoutPanel17.RowCount = 1;
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(802, 44);
-            this.tableLayoutPanel17.TabIndex = 1;
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(117, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(166, 44);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "All Branches";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.Location = new System.Drawing.Point(695, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 34);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "New";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button2.Location = new System.Drawing.Point(695, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 34);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "New";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // bank_id
-            // 
-            this.bank_id.HeaderText = "Bank Number";
-            this.bank_id.Name = "bank_id";
-            this.bank_id.ReadOnly = true;
-            // 
-            // bank_name
-            // 
-            this.bank_name.HeaderText = "Name";
-            this.bank_name.Name = "bank_name";
-            this.bank_name.ReadOnly = true;
-            // 
-            // bank_city
-            // 
-            this.bank_city.HeaderText = "City";
-            this.bank_city.Name = "bank_city";
-            this.bank_city.ReadOnly = true;
-            // 
-            // branch_id
-            // 
-            this.branch_id.HeaderText = "Branch Number";
-            this.branch_id.Name = "branch_id";
-            this.branch_id.ReadOnly = true;
-            // 
-            // branch_bank
-            // 
-            this.branch_bank.HeaderText = "Bank";
-            this.branch_bank.Name = "branch_bank";
-            this.branch_bank.ReadOnly = true;
-            // 
-            // branch_name
-            // 
-            this.branch_name.HeaderText = "Name";
-            this.branch_name.Name = "branch_name";
-            this.branch_name.ReadOnly = true;
-            // 
-            // branch_adress
-            // 
-            this.branch_adress.HeaderText = "Adress";
-            this.branch_adress.Name = "branch_adress";
-            this.branch_adress.ReadOnly = true;
-            // 
             // AdminPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1258,11 +1262,15 @@
             this.Text = "Bank Admin";
             this.tabControl1.ResumeLayout(false);
             this.dashboard_tab.ResumeLayout(false);
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel13.PerformLayout();
             this.accounts_tab.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.accounts_data_view)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
             this.transactions_tab.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1273,6 +1281,18 @@
             this.loans_tab.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.loans_view)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            this.banks_tab.ResumeLayout(false);
+            this.tableLayoutPanel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.banks_data_view)).EndInit();
+            this.tableLayoutPanel15.ResumeLayout(false);
+            this.tableLayoutPanel15.PerformLayout();
+            this.branches_tab.ResumeLayout(false);
+            this.tableLayoutPanel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.branches_data_view)).EndInit();
+            this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel17.PerformLayout();
             this.user_profile_tab.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
@@ -1281,30 +1301,14 @@
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
-            this.tableLayoutPanel13.ResumeLayout(false);
-            this.tableLayoutPanel13.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            this.banks_tab.ResumeLayout(false);
-            this.branches_tab.ResumeLayout(false);
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel8.PerformLayout();
-            this.tableLayoutPanel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.banks_data_view)).EndInit();
-            this.tableLayoutPanel15.ResumeLayout(false);
-            this.tableLayoutPanel15.PerformLayout();
-            this.tableLayoutPanel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.branches_data_view)).EndInit();
-            this.tableLayoutPanel17.ResumeLayout(false);
-            this.tableLayoutPanel17.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        //private DotNetBarTabControl tabControl1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private DotNetBarTabControl tabControl1;
+        //private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage dashboard_tab;
         private System.Windows.Forms.TabPage accounts_tab;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
