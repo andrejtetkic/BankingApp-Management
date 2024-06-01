@@ -415,5 +415,37 @@ namespace Client
             ChangePassword changePassword = new ChangePassword(proxy);
             changePassword.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            EditBranch editBranch = new EditBranch(proxy, (int)branches_data_view.SelectedRows[0].Cells[0].Value);
+            editBranch.ShowDialog();
+
+            BranchesLoad();
+        }
+
+        private void branches_data_view_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditBranch editBranch = new EditBranch(proxy, (int)branches_data_view.SelectedRows[0].Cells[0].Value);
+            editBranch.ShowDialog();
+
+            BranchesLoad();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            EditBank editBank = new EditBank(proxy, (int)banks_data_view.SelectedRows[0].Cells[0].Value);
+            editBank.ShowDialog();
+
+            BanksLoad();
+        }
+
+        private void banks_data_view_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditBank editBank = new EditBank(proxy, (int)banks_data_view.SelectedRows[0].Cells[0].Value);
+            editBank.ShowDialog();
+
+            BanksLoad();
+        }
     }
 }

@@ -68,15 +68,15 @@ namespace Client
             }
             else
             {
-                username_tb.Text = string.Empty;
-                password_tb.Text = string.Empty;
+                username_tb.Text = "E-mail";
+                password_tb.Text = "Password";
                 wrongInput_label.Visible = true;
             }
         }
 
         private void onLogInInputChange(object sender, EventArgs e)
         {
-            if (username_tb.Text == "E-mail" && password_tb.Text == "Password")
+            if (username_tb.Text == "E-mail" || password_tb.Text == "Password")
             {
                 logIn_btn.Enabled = false;
             }

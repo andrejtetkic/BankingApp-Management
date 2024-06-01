@@ -76,6 +76,18 @@
     <Compile Include="DotNetBarTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="EditBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBank.Designer.cs">
+      <DependentUpon>EditBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBranch.Designer.cs">
+      <DependentUpon>EditBranch.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewBank.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +140,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateLoan.resx">
       <DependentUpon>CreateLoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBank.resx">
+      <DependentUpon>EditBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBranch.resx">
+      <DependentUpon>EditBranch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>

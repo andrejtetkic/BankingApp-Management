@@ -90,6 +90,9 @@ namespace Common
         [OperationContract]
         Dictionary<int, string> GetAllBankNamesWithIDs();
 
+        [OperationContract]
+        Bank GetBank(int bank_id);
+
         #endregion
 
 
@@ -109,6 +112,9 @@ namespace Common
 
         [OperationContract]
         bool DeleteBranch(int branch_id);
+
+        [OperationContract]
+        Branch GetBranch(int branch_id);
 
 
 

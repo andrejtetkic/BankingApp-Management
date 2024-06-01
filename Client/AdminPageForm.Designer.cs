@@ -98,7 +98,9 @@
             this.bank_city = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label18 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.branches_tab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.branches_data_view = new System.Windows.Forms.DataGridView();
@@ -107,8 +109,10 @@
             this.branch_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.branch_adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.user_profile_tab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -144,10 +148,12 @@
             this.tableLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.banks_data_view)).BeginInit();
             this.tableLayoutPanel15.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
             this.branches_tab.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.branches_data_view)).BeginInit();
             this.tableLayoutPanel17.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
             this.user_profile_tab.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -904,6 +910,7 @@
             this.banks_data_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.banks_data_view.Size = new System.Drawing.Size(802, 386);
             this.banks_data_view.TabIndex = 0;
+            this.banks_data_view.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.banks_data_view_CellDoubleClick);
             // 
             // bank_id
             // 
@@ -929,7 +936,7 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.Controls.Add(this.label18, 0, 0);
-            this.tableLayoutPanel15.Controls.Add(this.button1, 1, 0);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel18, 1, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
@@ -950,16 +957,43 @@
             this.label18.Text = "All Banks";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel18
+            // 
+            this.tableLayoutPanel18.ColumnCount = 2;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.88608F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.11392F));
+            this.tableLayoutPanel18.Controls.Add(this.button1, 1, 0);
+            this.tableLayoutPanel18.Controls.Add(this.button3, 0, 0);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(404, 3);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 1;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(395, 38);
+            this.tableLayoutPanel18.TabIndex = 4;
+            // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.Location = new System.Drawing.Point(695, 5);
+            this.button1.Location = new System.Drawing.Point(288, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 34);
-            this.button1.TabIndex = 4;
+            this.button1.Size = new System.Drawing.Size(104, 32);
+            this.button1.TabIndex = 5;
             this.button1.Text = "New";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(173, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(104, 32);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Edit Selected";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // branches_tab
             // 
@@ -1005,6 +1039,7 @@
             this.branches_data_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.branches_data_view.Size = new System.Drawing.Size(802, 386);
             this.branches_data_view.TabIndex = 0;
+            this.branches_data_view.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.branches_data_view_CellDoubleClick);
             // 
             // branch_id
             // 
@@ -1035,8 +1070,8 @@
             this.tableLayoutPanel17.ColumnCount = 2;
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Controls.Add(this.button2, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.label19, 0, 0);
+            this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel19, 1, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
@@ -1044,17 +1079,6 @@
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.Size = new System.Drawing.Size(802, 44);
             this.tableLayoutPanel17.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button2.Location = new System.Drawing.Point(695, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 34);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "New";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label19
             // 
@@ -1067,6 +1091,44 @@
             this.label19.TabIndex = 3;
             this.label19.Text = "All Branches";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel19
+            // 
+            this.tableLayoutPanel19.ColumnCount = 2;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.63291F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.36709F));
+            this.tableLayoutPanel19.Controls.Add(this.button4, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(404, 3);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 1;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(395, 38);
+            this.tableLayoutPanel19.TabIndex = 4;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(172, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(104, 32);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Edit Selected";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button2.Location = new System.Drawing.Point(288, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(104, 32);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "New";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // user_profile_tab
             // 
@@ -1288,11 +1350,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.banks_data_view)).EndInit();
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
+            this.tableLayoutPanel18.ResumeLayout(false);
             this.branches_tab.ResumeLayout(false);
             this.tableLayoutPanel16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.branches_data_view)).EndInit();
             this.tableLayoutPanel17.ResumeLayout(false);
             this.tableLayoutPanel17.PerformLayout();
+            this.tableLayoutPanel19.ResumeLayout(false);
             this.user_profile_tab.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
@@ -1393,7 +1457,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bank_city;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.DataGridView branches_data_view;
         private System.Windows.Forms.DataGridViewTextBoxColumn branch_id;
@@ -1401,7 +1464,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn branch_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn branch_adress;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button2;
     }
 }

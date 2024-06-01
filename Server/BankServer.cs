@@ -702,5 +702,25 @@ namespace Server
 
             return return_values;
         }
+
+        public Bank GetBank(int bank_id)
+        {
+            string sqlQuery = $"select * from banka where id_banke={bank_id}";
+            List<Dictionary<string, object>> banks = Database.ExecuteSelectCommand(sqlQuery);
+
+            if (banks.Count == 0) return null;
+
+            return new Bank(banks[0]);
+        }
+
+        public Branch GetBranch(int branch_id)
+        {
+            string sqlQuery = $"select * from filijala where id_filijale={branch_id}";
+            List<Dictionary<string, object>> branches = Database.ExecuteSelectCommand(sqlQuery);
+
+            if (branches.Count == 0) return null;
+
+            return new Branch(branches[0]);
+        }
     }
 }
