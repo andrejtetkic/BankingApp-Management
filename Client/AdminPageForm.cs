@@ -53,6 +53,7 @@ namespace Client
                 { dashboard_tab, DashboardLoad },
                 { transactions_tab, TransactionsLoad },
                 { accounts_tab, AccountsLoad },
+                { loans_tab, LoansLoad },
             };
         }
 
@@ -318,6 +319,24 @@ namespace Client
         private void account_show_combo_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetAccounts();
+        }
+
+        private void LoansLoad()
+        {
+            bankID2Name = proxy.GetAllBankNamesWithIDs();
+            branchId2Name = proxy.GetAllBranchNamesWithIDs();
+
+            loans_view.Rows.Clear();
+
+            loans = proxy.GetAllLoans();
+
+            User user;
+            foreach (Loan loan in loans)
+            {
+                user = proxy.GetUser(loan.LenderJMBG);
+                loans_view.Rows.Add(loan.ID, $"{user.Ime} {user.Prezime}", loan.Name, bankID2Name[loan.BankID], "$" + loan.Amount, Account.FormatID(loan.AccountNumber), loan.Interest, "$" + -loan.Balance);
+            }
+
         }
     }
 }
