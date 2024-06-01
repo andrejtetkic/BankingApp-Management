@@ -76,6 +76,12 @@
     <Compile Include="DotNetBarTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="NewBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewBank.Designer.cs">
+      <DependentUpon>NewBank.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainPageForm.resx">
       <DependentUpon>MainPageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewBank.resx">
+      <DependentUpon>NewBank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewTransaction.resx">
       <DependentUpon>NewTransaction.cs</DependentUpon>

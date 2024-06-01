@@ -54,6 +54,7 @@ namespace Client
                 { transactions_tab, TransactionsLoad },
                 { accounts_tab, AccountsLoad },
                 { loans_tab, LoansLoad },
+                { banks_tab, BanksLoad },
             };
         }
 
@@ -337,6 +338,26 @@ namespace Client
                 loans_view.Rows.Add(loan.ID, $"{user.Ime} {user.Prezime}", loan.Name, bankID2Name[loan.BankID], "$" + loan.Amount, Account.FormatID(loan.AccountNumber), loan.Interest, "$" + -loan.Balance);
             }
 
+        }
+
+        private void BanksLoad()
+        {
+            banks_data_view.Rows.Clear();
+
+            banks = proxy.GetAllBanks();
+
+            foreach (Bank bank in banks)
+            {
+                banks_data_view.Rows.Add(bank.ID, bank.Name, bank.City);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NewBank bank = new NewBank(proxy);
+            bank.ShowDialog();
+
+            BanksLoad();
         }
     }
 }

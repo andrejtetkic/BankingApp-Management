@@ -72,7 +72,7 @@ namespace Server
         public void CreateAccount(Account account)
         {
 
-            if(account.AccountNumber.Length != 4)
+            if(account.AccountNumber.Length != 4 && !account.AccountNumber.EndsWith("b"))
             {
                 CException exception = new CException($"Invalid Account Number Format");
                 throw new FaultException<CException>(exception);
@@ -96,7 +96,7 @@ namespace Server
 
         public void CreateBank(Bank bank)
         {
-            string sqlQuery = $"INSERT INTO banka VALUES('{bank.Name}', '{bank.City}')";
+            string sqlQuery = $"INSERT INTO banka VALUES('{bank.Name}', '{bank.City}', {bank.MainBranch})";
             // TODO: check if there is a bank with that name and that city already
 
             try
@@ -189,7 +189,7 @@ namespace Server
             Transaction transaction = new Transaction();
             transaction.SenderBranchID = GetBankById(loan.BankID).MainBranch;
             transaction.SenderBankID = loan.BankID;
-            transaction.SenderAccountID = $"{loan.BankID.ToString("D4")}";
+            transaction.SenderAccountID = $"{loan.BankID.ToString("D4")}b";
 
             transaction.ReciverBranchID = account.BranchId;
             transaction.ReciverBankID = account.BankId;
@@ -289,6 +289,11 @@ namespace Server
         {
             CException exception = new CException("Something went Wrong");
 
+            if (transaction.TransactionType == "Loan Repayment")
+            {
+                transaction.ReciverAccountID = $"{transaction.ReciverAccountID}b";
+            }
+
 
             User sender = GetUserFromAccount(transaction.SenderAccountID);
             User reciver = GetUserFromAccount(transaction.ReciverAccountID);
@@ -354,7 +359,7 @@ namespace Server
             float bank_fee = transaction.Amount * transaction.BankFeeProcentage / 100;
             ChangeAccountBalance(transaction.SenderAccountID, -transaction.Amount);
             ChangeAccountBalance(transaction.ReciverAccountID, transaction.Amount - bank_fee);
-            ChangeAccountBalance($"{transaction.SenderBankID.ToString("D4")}", bank_fee); // Bank account
+            ChangeAccountBalance($"{transaction.SenderBankID.ToString("D4")}b", bank_fee); // Bank account
 
 
         }
@@ -633,13 +638,7 @@ namespace Server
         public bool UpdateBank(int bank_id, Bank bank)
         {
             string sqlQuery = $"UPDATE banka SET naziv_banke = '{bank.Name}', " +
-                $"grad = '{bank.City}' WHERE id_banke = {bank_id}";
-
-            string check_query = $"SELECT * FROM banka WHERE id_banke={bank_id}";
-            if (!Database.ExecuteScalarCommand(check_query))
-            {
-                return false;
-            }
+                $"grad = '{bank.City}', main_branch = {bank.MainBranch} WHERE id_banke = {bank_id}";
 
 
             return Database.ExecuteNonQueryCommand(sqlQuery);
@@ -683,7 +682,7 @@ namespace Server
             string sqlQuery = $"select * from korisnik where jmbg_korisnika='{user_id}'";
             List<Dictionary<string, object>> users = Database.ExecuteSelectCommand(sqlQuery);
 
-            if (users.Count == 0) return null;
+            if (users.Count == 0) return new User();
 
             return new User(users[0]);
         }

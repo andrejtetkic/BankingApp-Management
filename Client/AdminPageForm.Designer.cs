@@ -107,11 +107,11 @@
             this.account_show_combo = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.banks_data_view = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label18 = new System.Windows.Forms.Label();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.branches_data_view = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.label19 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -148,10 +148,10 @@
             this.branches_tab.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.banks_data_view)).BeginInit();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branches_data_view)).BeginInit();
             this.tableLayoutPanel17.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1065,7 +1065,7 @@
             // 
             this.tableLayoutPanel14.ColumnCount = 1;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel14.Controls.Add(this.banks_data_view, 0, 1);
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel15, 0, 0);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
@@ -1077,23 +1077,23 @@
             this.tableLayoutPanel14.Size = new System.Drawing.Size(808, 442);
             this.tableLayoutPanel14.TabIndex = 3;
             // 
-            // dataGridView1
+            // banks_data_view
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.banks_data_view.AllowUserToAddRows = false;
+            this.banks_data_view.AllowUserToDeleteRows = false;
+            this.banks_data_view.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.banks_data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.banks_data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bank_id,
             this.bank_name,
             this.bank_city});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(802, 386);
-            this.dataGridView1.TabIndex = 0;
+            this.banks_data_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.banks_data_view.Location = new System.Drawing.Point(3, 53);
+            this.banks_data_view.Name = "banks_data_view";
+            this.banks_data_view.ReadOnly = true;
+            this.banks_data_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.banks_data_view.Size = new System.Drawing.Size(802, 386);
+            this.banks_data_view.TabIndex = 0;
             // 
             // tableLayoutPanel15
             // 
@@ -1126,7 +1126,7 @@
             // 
             this.tableLayoutPanel16.ColumnCount = 1;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Controls.Add(this.dataGridView2, 0, 1);
+            this.tableLayoutPanel16.Controls.Add(this.branches_data_view, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 0, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 0);
@@ -1138,24 +1138,24 @@
             this.tableLayoutPanel16.Size = new System.Drawing.Size(808, 442);
             this.tableLayoutPanel16.TabIndex = 3;
             // 
-            // dataGridView2
+            // branches_data_view
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.branches_data_view.AllowUserToAddRows = false;
+            this.branches_data_view.AllowUserToDeleteRows = false;
+            this.branches_data_view.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.branches_data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.branches_data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.branch_id,
             this.branch_bank,
             this.branch_name,
             this.branch_adress});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 53);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(802, 386);
-            this.dataGridView2.TabIndex = 0;
+            this.branches_data_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.branches_data_view.Location = new System.Drawing.Point(3, 53);
+            this.branches_data_view.Name = "branches_data_view";
+            this.branches_data_view.ReadOnly = true;
+            this.branches_data_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.branches_data_view.Size = new System.Drawing.Size(802, 386);
+            this.branches_data_view.TabIndex = 0;
             // 
             // tableLayoutPanel17
             // 
@@ -1193,6 +1193,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "New";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -1253,6 +1254,7 @@
             this.ClientSize = new System.Drawing.Size(952, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "AdminPageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bank Admin";
             this.tabControl1.ResumeLayout(false);
             this.dashboard_tab.ResumeLayout(false);
@@ -1288,11 +1290,11 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             this.tableLayoutPanel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.banks_data_view)).EndInit();
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
             this.tableLayoutPanel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branches_data_view)).EndInit();
             this.tableLayoutPanel17.ResumeLayout(false);
             this.tableLayoutPanel17.PerformLayout();
             this.ResumeLayout(false);
@@ -1381,7 +1383,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox account_show_combo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView banks_data_view;
         private System.Windows.Forms.DataGridViewTextBoxColumn bank_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn bank_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn bank_city;
@@ -1389,7 +1391,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView branches_data_view;
         private System.Windows.Forms.DataGridViewTextBoxColumn branch_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn branch_bank;
         private System.Windows.Forms.DataGridViewTextBoxColumn branch_name;
