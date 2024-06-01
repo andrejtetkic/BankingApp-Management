@@ -52,9 +52,9 @@ namespace Client
                     
                     ch.Close();
                     this.Hide();
-                    MainPageForm mainPageForm = new MainPageForm();
-                    mainPageForm.Closed += (s, args) => this.Close();
-                    mainPageForm.Show();
+                    AdminPageForm adminPage = new AdminPageForm();
+                    adminPage.Closed += (s, args) => this.Close();
+                    adminPage.Show();
                 }
                 else
                 {

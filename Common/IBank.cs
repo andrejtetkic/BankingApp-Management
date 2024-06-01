@@ -45,6 +45,9 @@ namespace Common
         List<User> GetAllUsers();
 
         [OperationContract]
+        User GetUserFromAccount(string account_id);
+
+        [OperationContract]
         User GetUser(string user_id);
 
         [OperationContract]
@@ -97,6 +100,9 @@ namespace Common
 
         [OperationContract]
         List<Branch> GetAllBranches();
+
+        [OperationContract]
+        List<Branch> GetAllBranchesOfBank(int bank_id);
 
         [OperationContract]
         bool UpdateBranch(int branch_id, Branch branch);

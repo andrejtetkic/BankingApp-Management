@@ -204,9 +204,9 @@ namespace Server
 
         }
 
-        User GetUserFromAccount(string account)
+        public User GetUserFromAccount(string account_id)
         {
-            string sqlQuery = $"select * from korisnik k join racun r on k.jmbg_korisnika=r.jmbg_korisnika where r.broj_racuna='{account}'";
+            string sqlQuery = $"select * from korisnik k join racun r on k.jmbg_korisnika=r.jmbg_korisnika where r.broj_racuna='{account_id}'";
             List<Dictionary<string, object>> users = Database.ExecuteSelectCommand(sqlQuery);
 
             if(users.Count == 0) return null;
@@ -686,6 +686,22 @@ namespace Server
             if (users.Count == 0) return null;
 
             return new User(users[0]);
+        }
+
+        public List<Branch> GetAllBranchesOfBank(int bank_id)
+        {
+            string sqlQuery = $"select * from filijala where id_banke={bank_id}";
+
+            List<Dictionary<string, object>> branches = Database.ExecuteSelectCommand(sqlQuery);
+            List<Branch> return_values = new List<Branch>();
+
+
+            foreach (Dictionary<string, object> branch in branches)
+            {
+                return_values.Add(new Branch(branch));
+            }
+
+            return return_values;
         }
     }
 }
